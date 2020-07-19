@@ -1,11 +1,21 @@
 import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
+
+import {ThemeProvider} from 'styled-components'
+import {mainTheme} from 'src/themes/mainTheme.js';
+
+
+import {Header} from 'Components/Header/Header.jsx'
+
+// import 'App.css';
+
 
 function App() {
 	return (
-		<div className="App">
-		</div>
+		<ThemeProvider theme={mainTheme}>
+			<div className="App">
+				<Header/>
+			</div>
+		</ThemeProvider>
 	);
 }
 
