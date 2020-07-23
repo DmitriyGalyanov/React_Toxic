@@ -6,7 +6,7 @@ import {mainTheme} from 'src/themes/mainTheme.js';
 
 import {Header} from 'Components/Header/Header.jsx'
 
-// import 'App.css';
+import './App.scss';
 
 
 function App() {

@@ -1,0 +1,114 @@
+@import 'src/colors.scss';
+
+.header {
+	padding: 15px 140px;
+	font-family: 'Montserrat', sans-serif;
+	display: flex; align-items: center;
+	padding: 15px 0;
+	position: relative;
+	// z-index: 0;
+	justify-content: space-between;
+	.header__nav {
+		.link-wrap:not(:first-child) {
+			margin-left: 20px;
+		}
+	}
+	.header__buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		:not(:first-child) {
+			margin-left: 20px;
+		}
+	}
+	.user-info {
+		:not(:first-child) {
+			margin-left: 20px;
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.header {
+		padding: 15px 20px;
+		.header__nav-open-button {
+			display: block;
+			position: absolute; left: 136px;
+			.bar {
+				display: block;
+				height: 2px; width: 22px;
+				background: scale-color($primaryColor, $lightness: 30%);
+				margin: 6px 0;
+				transition: all 0.6s ease;
+				transform-origin: left;
+			}
+			&.active {
+				.bar1 {
+					transform: rotate(45deg);
+				}
+				.bar2 {
+					opacity: 0;
+				}
+				.bar3 {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+			.header__nav {
+				display: flex; align-items: center;
+				transition: all 0.6s ease;
+				transform-origin: top;
+				transform: scaleY(0);
+				&.active {
+					transform: scaleY(1);
+				}
+				height: 100vh; // bottom: 0;
+				background-color: #fff;
+				flex-direction: column;
+				position: fixed;
+				left: 0; right: 0; top: 84px; // top: $headerHeight;
+				text-align: center;
+				padding: 0 20px; box-sizing: border-box;
+				margin-top: -15px;
+				.link-wrap {
+					margin: 15px 0 0 0!important;
+					&_expandable {
+						display: inline-block;
+						span {
+							display: initial;
+							position: relative;
+							right: -15px;
+						}
+					}
+				}
+				&.transparent {
+					background-color: rgba(255, 255, 255, 0.8);
+				}
+				.link-options {
+					// position: static;
+					background: #fff;
+				}
+				
+			}
+	}
+}
+
+@media (max-width: 576px) {
+	.header {
+		padding: 12px 5px;
+			.header__buttons {
+				display: grid;
+				row-gap: 10px;
+				a {
+					font-size: 11px; padding: 10px 12px;
+					margin: 0!important;
+				}
+			}
+			.header__nav {
+				top: 116px; // 44 за каждую кнопку (за первую 42)
+			}
+		.header__nav-open-button {
+			left: 116px;
+		}
+	}
+}
