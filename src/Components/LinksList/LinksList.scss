@@ -1,0 +1,26 @@
+@import 'src/colors.scss';
+
+.link-list {
+	font-family: 'Montserrat', sans-serif;
+	white-space: nowrap;
+	// display: flex; flex-direction: column;
+	// margin: 0 50px 0 40px;
+	// justify-content: space-between;
+	// flex-grow: 1;
+	.link-list__header {
+		font-size: 12px; font-weight: bold;
+		color: $darkShadeColor;
+		text-transform: uppercase;
+	}
+	.link-list__links {
+		list-style-type: none;
+		margin: 0; padding: 0;
+		li {
+			margin-top: 20px;
+			a {
+				font-size: 14px; font-weight: normal; 
+				color: transparentize($darkShadeColor, 0.5);
+			}
+		}
+	}
+}

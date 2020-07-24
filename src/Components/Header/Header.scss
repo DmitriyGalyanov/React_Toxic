@@ -32,6 +32,7 @@
 	.header {
 		padding: 15px 20px;
 		.header__nav-open-button {
+			cursor: pointer;
 			display: block;
 			position: absolute; left: 136px;
 			.bar {

@@ -1,0 +1,117 @@
+@import 'src/colors.scss';
+
+footer {
+	// position: fixed; //
+	// bottom: 1px; //
+	background-color: #fff;
+}
+.footer {
+	font-family: 'Montserrat', sans-serif;
+	background-color: inherit;
+	.footer__top {
+		padding: 100px 0;
+		justify-content: space-between;
+		.footer__logo-area {
+			:first-child {
+				margin-bottom: 20px;
+			}
+			p {
+				width: 260px;
+				font-size: 14px;
+				line-height: 24px;
+				color: transparentize($darkShadeColor, 0.25);
+			}
+		}
+		display: flex; flex-direction: row;
+		.footer__link-lists {
+			display: flex; flex-direction: row;
+			flex-grow: 1;
+			margin: 0 20px;
+			justify-content: space-between;
+		}
+		.footer__subscription {
+			width: 260px;
+			.subscription-header {
+				font-size: 12px; font-weight: bold; color: $darkShadeColor;
+				text-transform: uppercase;
+			}
+			.subscription-text {
+				font-size: 14px; color: transparentize($darkShadeColor, 0.25);
+				line-height: 24px;
+				margin: 20px 0;
+			}
+		}
+	}
+	.footer-bottom {
+		padding: 23px 0;
+		display: flex; justify-content: space-between; align-items: center;
+	}
+	.footer__copyright {
+		margin: 0;
+		font-size: 14px; line-height: 17px;
+		color: transparentize($darkShadeColor, 0.25);
+	}
+}
+
+@media (max-width: 992px) {
+	.footer {
+		.footer__top {
+			padding: 55px 0;
+			flex-wrap: wrap;
+			justify-content: center;
+			.footer__link-lists {
+				margin: 0 20px 0 0;
+				.link-list {
+					margin-bottom: 20px;
+					// &:not(:last-child) {
+					// 	margin-right: 15px;
+					// }
+				}
+				order: -1;
+			}
+			.footer__logo-area {
+				order: 1;
+			}
+			.footer__subscription {
+				margin-right: 10px;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.footer {
+		.footer__top {
+			padding: 35px 0;
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.footer {
+		.footer__top {
+			padding: 20px 0;
+			flex-direction: column;
+			.footer__link-lists {
+				margin: 0 0 20px 0;
+				flex-wrap: wrap;
+			}
+			.footer__subscription {
+				margin-bottom: 20px;
+			}
+		}
+		// .footer__bottom {
+			// .socials {
+			// 	display: grid;
+			// 	grid-template-columns: 21px 21px;
+			// 	column-gap: 12px; row-gap: 8px;
+			// 	a {
+			// 		margin: 0;
+			// 		display: block; height: 22px; line-height: 22px;
+			// 	}
+			// }
+		// }
+	}
+}

@@ -1,5 +1,3 @@
-
-
 export const mainTheme = {
 	colors: {
 		main: '#BC9CFF',

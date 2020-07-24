@@ -1,0 +1,70 @@
+@import 'src/colors.scss';
+
+.text-field {
+	font-family: 'Montserrat', sans-serif;
+	width: 100%;
+	// min-width: 260px; //
+	min-width: 250px;
+	height: 44px;
+	background: #FFF;
+	border: 1px solid transparentize($darkShadeColor, 0.75);
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 14px;
+	color: transparentize($darkShadeColor, 0.25);
+	padding-left: 15px; outline: none;
+	&::placeholder {
+		font-size: 14px;
+		line-height: 18px;
+		color: transparentize($darkShadeColor, 0.75);
+		}
+	&:hover, &:focus {
+		border-color: transparentize($darkShadeColor, 0.5);
+	}
+}
+//SUBSCRIPTION-TEXT-FIELD START
+.text-field-wrap_subscription {
+	max-width: 265px; width: 100%;
+	position: relative;
+	.text-field__send-button {
+		width: 15px; height: 2px;
+		background-color: $primaryColor;
+		position: absolute; display: block;
+		right: 13px; bottom: 20px;
+		border: none; outline: none;
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: -1px; right: 1px;
+			transform: rotate(-45deg);
+			height: 10px;
+			width: 2px;
+			background-color: $primaryColor;
+		}
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: -1px; right: 1px;
+			transform: rotate(45deg);
+			height: 10px;
+			width: 2px;
+			background-color: $primaryColor;
+		}
+		span {
+			position: absolute;
+			line-height: 44px;
+			width: 44px;
+			color: transparent; cursor: pointer;
+			top: -22px;
+			right: -13px;
+		}
+	}
+}
+
+// @media (max-width: 576px) {
+// 	.text-field {
+// 		width: calc(100% - 60px); //forms
+// 	}
+// }
