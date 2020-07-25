@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import './Link.scss';
+import './CustomLink.scss';
 
-export class Link extends Component {
+export class CustomLink extends Component {
 	state= {
 		optionsHeight: '0'
 	}

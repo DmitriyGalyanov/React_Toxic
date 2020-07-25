@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Link} from 'Components/Link/Link.jsx'
+import {CustomLink} from 'Components/CustomLink/CustomLink.jsx'
 
 import './LinksList.scss';
 
@@ -8,7 +8,7 @@ export class LinksList extends Component {
 	// getLinksList = () => {
 	// 	let key = 0;
 	// 	return (this.props.links.map((link) => {
-	// 		return (<li key={++key}><Link label={link[0]} href={link[1]}/></li>)
+	// 		return (<li key={++key}><CustomLink label={link[0]} href={link[1]}/></li>)
 	// 	}));
 	// };
 
@@ -21,7 +21,7 @@ export class LinksList extends Component {
 			<ul className='link-list__links'>
 				{/* {this.getLinksList()} */}
 				{this.props.links.map((link) => {
-					return (<li key={++key}><Link label={link[0]} href={link[1]}/></li>)
+					return (<li key={++key}><CustomLink label={link[0]} href={link[1]}/></li>)
 				})}
 			</ul>
 		</div>

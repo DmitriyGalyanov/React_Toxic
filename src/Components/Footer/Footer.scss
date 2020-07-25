@@ -1,8 +1,6 @@
 @import 'src/colors.scss';
 
 footer {
-	// position: fixed; //
-	// bottom: 1px; //
 	background-color: #fff;
 }
 .footer {
@@ -63,9 +61,6 @@ footer {
 				margin: 0 20px 0 0;
 				.link-list {
 					margin-bottom: 20px;
-					// &:not(:last-child) {
-					// 	margin-right: 15px;
-					// }
 				}
 				order: -1;
 			}
@@ -102,16 +97,15 @@ footer {
 				margin-bottom: 20px;
 			}
 		}
-		// .footer__bottom {
-			// .socials {
-			// 	display: grid;
-			// 	grid-template-columns: 21px 21px;
-			// 	column-gap: 12px; row-gap: 8px;
-			// 	a {
-			// 		margin: 0;
-			// 		display: block; height: 22px; line-height: 22px;
-			// 	}
-			// }
-		// }
+	}
+}
+
+.footer_mini {
+	padding: 25px 5px!important;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.footer__copyright {
+		margin: 20px 0 25px 0;
 	}
 }

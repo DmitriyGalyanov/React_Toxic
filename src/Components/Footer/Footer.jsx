@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-// import classNames from 'classnames';
 
 import {Logo} from 'Components/Logo/Logo.jsx'
-// import {Link} from 'Components/Link/Link.jsx'
 import {LinksList} from 'Components/LinksList/LinksList.jsx'
 import {TextField} from 'Components/TextField/TextField.jsx'
 import {Socials} from 'Components/Socials/Socials.jsx'
@@ -12,6 +10,19 @@ import './Footer.scss';
 export class Footer extends Component {
 
 	render() {
+		if (window.innerWidth <= 576) {
+			return (
+				<footer>
+					<div className='footer footer_mini container'>
+						<Logo/>
+						<div className='footer__copyright'>
+							Copyright &copy; 2018 Toxin отель. Все права защищены.
+						</div>
+						<Socials/>
+					</div>
+				</footer>
+			)
+		}
 		return(
 			<footer>
 				<div className='footer container'>

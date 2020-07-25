@@ -1,0 +1,41 @@
+@import 'src/colors.scss';
+
+.toggle-button {
+	line-height: 20px;
+	.toggle-button__header {
+		margin-left: 55px;
+		font-size: 14px;
+		color: transparentize($darkShadeColor, 0.25);
+	}
+	.toggle-button__label {
+		.toggle-button__button {
+			position: absolute;
+			opacity: 0;
+			&:checked+.toggle-button__slider {
+				border-color: $primaryColor;
+				&:before {
+					left: 24px;
+					background-color: $primaryColor;
+				}
+			}
+		}
+		.toggle-button__slider {
+			position: absolute;
+			cursor: pointer;
+			background-color: #fff;
+			width: 40px; height: 18px;
+			transition: all .3s ease;
+			border: 1px solid transparentize($darkShadeColor, 0.75);
+			border-radius: 10px;
+			&:before {
+				position: absolute;
+				left: 4px; bottom: 3px;
+				content: "";
+				height: 12px; width: 12px;
+				background-color: transparentize($darkShadeColor, 0.75);
+				transition: inherit;
+				border-radius: 50%;
+			}
+		}
+	}
+}

@@ -12,9 +12,13 @@ export class TextField extends Component {
 		let textFieldClasses = classNames(
 			'text-field',
 			{'text-field_subscription': isSubscription}
-		)
+		);
+		let textFieldWrapClasses = classNames(
+			'text-field-wrap',
+			{'text-field-wrap_subscription': isSubscription}
+		);
 		return (
-			<div className='text-field-wrap text-field-wrap_subscription'>
+			<div className={textFieldWrapClasses}>
 				<input type={type} placeholder={placeholder}
 				className={textFieldClasses}/>
 				{isSubscription && (

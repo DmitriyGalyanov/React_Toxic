@@ -1,0 +1,15 @@
+.registration-wrap {
+	background: url('~images/reg-log-main-pic.jpg') no-repeat center center;
+	height: 702px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.registration {
+	position: relative; z-index: 0;
+}
+@media (max-width: 576px) {
+	main {
+		padding: 0 5px;
+	}
+}

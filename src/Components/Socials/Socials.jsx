@@ -22,14 +22,14 @@ export class Socials extends Component {
 
 					<svg width="0" height="0">
 						<linearGradient id="socialsGradient">
-							<stop offset="0%" stop-color="#bc9cff"/>
-							<stop offset="100%" stop-color="#8ba4f9"/>
+							<stop offset="0%" stopColor="#bc9cff"/>
+							<stop offset="100%" stopColor="#8ba4f9"/>
 						</linearGradient>
 					</svg>
 					<svg width="0" height="0">
 						<linearGradient id="socialsHoverGradient">
-							<stop offset="0%" stop-color="#8ba4f9"/>
-							<stop offset="100%" stop-color="#bc9cff"/>
+							<stop offset="0%" stopColor="#8ba4f9"/>
+							<stop offset="100%" stopColor="#bc9cff"/>
 						</linearGradient>
 					</svg>
 				</div>

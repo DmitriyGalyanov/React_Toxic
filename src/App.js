@@ -1,24 +1,29 @@
 import React from 'react';
 
-import {ThemeProvider} from 'styled-components'
-import {mainTheme} from 'src/themes/mainTheme.js';
-
-
 import {Header} from 'Components/Header/Header.jsx'
 import {Footer} from 'Components/Footer/Footer.jsx'
+
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {routes} from 'src/routes.js';
 
 import './App.scss';
 
 
 function App() {
 	return (
-		<ThemeProvider theme={mainTheme}>
-			<div className="App">
+		<div className="App">
+			<BrowserRouter>
 				<Header/>
-				<div style={{height: '150px'}}/>
+				<main>
+						<Switch>
+							{routes.map((route, index) => {
+								return (<Route key={index} path={route.path} exact={route.exact} component={route.component}/>)
+							})}
+						</Switch>
+				</main>
 				<Footer/>
-			</div>
-		</ThemeProvider>
+				</BrowserRouter>
+		</div>
 	);
 }
 

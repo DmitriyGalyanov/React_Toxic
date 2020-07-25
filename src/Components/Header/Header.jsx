@@ -3,10 +3,9 @@ import classNames from 'classnames';
 
 import {Logo} from 'Components/Logo/Logo.jsx'
 import {Button} from 'Components/Button/Button.jsx'
-import {Link} from 'Components/Link/Link.jsx'
+import {CustomLink} from 'Components/CustomLink/CustomLink.jsx'
 
 import './Header.scss';
-
 
 
 export class Header extends Component {
@@ -44,25 +43,25 @@ export class Header extends Component {
 						<span className='bar bar3'/>
 					</div>
 					<nav className={navOpened}>
-						<Link href='#' label='О нас'/>
-						<Link expandable href='#' label='Услуги'
+						<CustomLink href='#' label='О нас'/>
+						<CustomLink expandable href='#' label='Услуги'
 						insideLinks={{'github': 'https://github.com/DmitriyGalyanov',
 												'instagram': 'https://www.instagram.com/'}}/>
-						<Link href='#' label='Вакансии'/>
-						<Link href='#' label='Новости'/>
-						<Link expandable href='#' label='Соглашения'
+						<CustomLink href='#' label='Вакансии'/>
+						<CustomLink href='#' label='Новости'/>
+						<CustomLink expandable href='#' label='Соглашения'
 						insideLinks={{'github': 'https://github.com/DmitriyGalyanov',
 												'instagram': 'https://www.instagram.com/'}}/>
 					</nav>
 					{!isLogged && (
 						<div className='header__buttons'>
 							<Button href='#' label='Войти' hollow/>
-							<Button href='#' label='Зарегистрироваться' filled/>
+							<Button href='/registration' label='Зарегистрироваться' filled/>
 						</div>
 					)}
 					{isLogged && (
 						<div className='user-info'>
-							<Link href='#' label={userName}/> {/* link to profile */}
+							<CustomLink href='#' label={userName}/> {/* link to profile */}
 							<Button href='#' label='Выйти' hollow/>
 						</div>
 					)}
