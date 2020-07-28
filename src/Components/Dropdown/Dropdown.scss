@@ -1,0 +1,105 @@
+@import 'src/colors.scss';
+
+.dropdown__header {
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 15px;
+	color: $darkShadeColor;
+	margin: 0 0 5px 0;
+	span {
+		display: none;
+	}
+}
+.dropdown__select {
+	cursor: pointer; font-family: inherit;
+	height: 44px; line-height: 43px; padding: 0 15px; width: 100%;
+	background: #FFFFFF;
+	border: 1px solid transparentize($darkShadeColor, 0.75);
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 14px;
+	display: flex; justify-content: space-between;
+	white-space: nowrap;
+	span {
+		width: 8px; height: 8px;
+		border-right: 2px solid transparentize($darkShadeColor, 0.5);
+		border-bottom: 2px solid transparentize($darkShadeColor, 0.5);
+		transform: rotate(45deg);
+		margin-top: 13px;
+	}
+}
+.dropdown {
+	max-width: 320px;
+	font-family: 'Montserrat', sans-serif;
+	position: relative;
+	.dropdown__options {
+		display: none;
+		background: inherit;
+		padding: 0 7px 13px 15px;
+		font-weight: bold;
+		font-size: 12px;
+		color: $darkShadeColor;
+		border: 1px solid transparentize($darkShadeColor, 0.5);
+		border-top: transparent;
+		box-sizing: border-box;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		.dropdown__option {
+			text-transform: uppercase;
+			flex-basis: 30px;
+			line-height: 30px;
+			margin-top: 7px;
+				.dropdown__buttons {
+					line-height: 30px; text-align: center;
+					float: right;
+					button {
+						width: 30px; height: 30px;
+						border: 1px solid transparentize($darkShadeColor, 0.5);
+						box-sizing: border-box;
+						border-radius: 15px;
+						background-color: #fff;
+						font-size: 18px;
+						color: transparentize($darkShadeColor, 0.5);
+						&:disabled {
+								border-color: transparentize($darkShadeColor, 0.75);
+								color: transparentize($darkShadeColor, 0.75);
+						}
+					}
+					span {
+						padding: 0 10px;
+						vertical-align: top;
+				}
+			}
+		}
+		.dropdown__choice-buttons {
+			margin-top: 20px;
+			.clear-button, .apply-button {
+						text-decoration: none;
+						font-size: 12px;
+						font-weight: bold;
+			}
+			.clear-button {
+				color: transparentize($darkShadeColor, 0.5);
+			}
+			.apply-button {
+				color: $primaryColor;
+				float: right;
+			}
+		}
+	}
+	.dropdown__select_active {
+		border-color: transparentize($darkShadeColor, 0.5);
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	 }
+	 .dropdown__options_active {
+			display: flex; flex-direction: column;
+			position: absolute;
+			width: 100%;
+			z-index: 10;
+			background: #fff;
+	}
+}
+.dropdown_rooms {
+	width: 265px;
+}

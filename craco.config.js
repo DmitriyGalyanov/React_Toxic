@@ -6,7 +6,9 @@ module.exports = {
 			src: path.resolve(__dirname, 'src'),
 			Components: path.resolve(__dirname, 'src', 'Components'),
 			pages: path.resolve(__dirname, 'src', 'pages'),
-			images: path.resolve(__dirname, 'src', 'images')
+			images: path.resolve(__dirname, 'src', 'images'),
+			Redux: path.resolve(__dirname, 'src', 'redux'),
+			actions: path.resolve(__dirname, 'src', 'redux', 'actions'),
 		}
 	}
 }

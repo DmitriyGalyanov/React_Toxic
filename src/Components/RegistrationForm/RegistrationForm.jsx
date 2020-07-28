@@ -5,10 +5,10 @@ import {RadioButtons} from 'Components/RadioButtons/RadioButtons.jsx'
 import {ToggleButton} from 'Components/ToggleButton/ToggleButton.jsx'
 import {Button} from 'Components/Button/Button.jsx'
 
-import './Registration.scss';
+import './RegistrationForm.scss';
 
 
-export class Registration extends Component {
+export class RegistrationForm extends Component {
 
 	render() {
 		return (
@@ -24,10 +24,10 @@ export class Registration extends Component {
 								['female', 'Женщина']
 							]}/>
 					</div>
-					<h2 class='registration__lower-header'>Дата рождения</h2>
+					<h2 className='registration__lower-header'>Дата рождения</h2>
 					<TextField type='text' placeholder='ДД.ММ.ГГГГ'/>
-					<div class='registration__form-bottom'>
-						<h2 class='registration__lower-header'>Данные для входа в сервис</h2>
+					<div className='registration__form-bottom'>
+						<h2 className='registration__lower-header'>Данные для входа в сервис</h2>
 						<TextField type='text' placeholder='Email'/>
 						<TextField type='password' placeholder='Пароль'/>
 						<ToggleButton header='Получать специальные предложения'

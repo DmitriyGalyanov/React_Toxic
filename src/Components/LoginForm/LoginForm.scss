@@ -1,0 +1,42 @@
+@import 'src/colors.scss';
+
+.login-form {
+	p {
+		margin: 0;
+	}
+	background: #fff; font-family: 'Quicksand', sans-serif;
+	padding: 40px 30px 32px 30px; box-sizing: border-box;
+	box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	z-index: 1;
+	.login-form__form {
+		.login-form__header {
+			font-weight: bold; font-size: 24px; color: $darkShadeColor;
+			margin: 0 0 20px 0; line-height: 30px;
+		}
+		.login-form__input-block {
+			height: 98px;
+			display: flex; flex-direction: column; justify-content: space-between;
+			margin-bottom: 20px;
+		}
+	}
+	.login-form__for-new-users {
+		display: flex; font-family: 'Montserrat', sans-serif;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 30px;
+		.button_inside-form {
+			margin-left: 35px;
+		} // ?
+	}
+}
+@media (max-width: 576px) {
+	.login {
+		.login__form {
+			.login__header {
+				font-size: 20px;
+				margin-bottom: 14px;
+			}
+		}
+	}
+}

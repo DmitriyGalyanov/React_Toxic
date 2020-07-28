@@ -55,7 +55,7 @@ export class Header extends Component {
 					</nav>
 					{!isLogged && (
 						<div className='header__buttons'>
-							<Button href='#' label='Войти' hollow/>
+							<Button href='/login' label='Войти' hollow/>
 							<Button href='/registration' label='Зарегистрироваться' filled/>
 						</div>
 					)}

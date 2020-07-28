@@ -1,17 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-import {Registration} from 'Components/Registration/Registration.jsx'
+import {RegistrationForm} from 'Components/RegistrationForm/RegistrationForm.jsx'
 
 import './RegistrationPage.scss';
 
 
-export class RegistrationPage extends Component {
-
-	render() {
-		return(
-			<div className='registration-wrap'>
-				<Registration/>
-			</div>
-		)
-	}
+export function RegistrationPage() {
+	return(
+		<div className='registration-wrap'>
+			<RegistrationForm/>
+		</div>
+	)
 }
