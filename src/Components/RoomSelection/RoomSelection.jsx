@@ -13,15 +13,16 @@ export class RoomSelection extends Component {
 			<>
 			<DateDropdown/>
 
-			<Dropdown id='dropdown_guests' header='Гости' placeholder='Сколько гостей?'
+			<Dropdown id='guests' header='Гости'
 				options={[
-					{id: 'adults', name: 'Взрослые', maxValue: 10},
-					{id: 'children', name: 'Дети', maxValue: 10},
-					{id: 'babies', name: 'Младенцы', maxValue: 10},
+					{id: 'adults', name: 'Adults', maxValue: 10},
+					{id: 'children', name: 'Children', maxValue: 10},
+					{id: 'babies', name: 'Babies', maxValue: 10},
 				]}
 				dropdownsData={this.props.dropdownsData}
 				dropdownValueIncrement={this.props.dropdownValueIncrement}
-				dropdownValueDecrement={this.props.dropdownValueDecrement}/>
+				dropdownValueDecrement={this.props.dropdownValueDecrement}
+				dropdownClear={this.props.dropdownClear}/>
 			</>
 		)
 	}

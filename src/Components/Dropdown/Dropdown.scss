@@ -74,16 +74,28 @@
 		.dropdown__choice-buttons {
 			margin-top: 20px;
 			.clear-button, .apply-button {
+						cursor: pointer;
+						padding: 0;
+						background: transparent;
+						display: inline-block;
+						border: none;
 						text-decoration: none;
 						font-size: 12px;
 						font-weight: bold;
 			}
 			.clear-button {
 				color: transparentize($darkShadeColor, 0.5);
+				&_disabled {
+					display: none;
+				}
 			}
 			.apply-button {
 				color: $primaryColor;
 				float: right;
+				&_disabled {
+					opacity: 0.5;
+					cursor: default;
+				}
 			}
 		}
 	}

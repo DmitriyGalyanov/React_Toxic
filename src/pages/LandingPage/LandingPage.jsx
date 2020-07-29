@@ -12,6 +12,7 @@ export class LandingPage extends React.Component {
 					dropdownsData={this.props.dropdownsData}
 					dropdownValueIncrement={this.props.dropdownValueIncrement}
 					dropdownValueDecrement={this.props.dropdownValueDecrement}
+					dropdownClear={this.props.dropdownClear}
 				/>
 			</div>
 		)

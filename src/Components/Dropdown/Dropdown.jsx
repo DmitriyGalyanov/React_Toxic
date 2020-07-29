@@ -8,16 +8,18 @@ import './Dropdown.scss';
 class DropdownOption extends Component {
 	handleDecrement = (event) => {
 		const dropdownOptionId = event.target.parentNode.parentNode.id
-		this.props.dropdownValueDecrement(dropdownOptionId)
+		const dropdownId = event.target.parentNode.parentNode.parentNode.parentNode.id
+		this.props.dropdownValueDecrement(dropdownOptionId, dropdownId)
 	}
 	handleIncrement = (event) => {
 		const dropdownOptionId = event.target.parentNode.parentNode.id
-		this.props.dropdownValueIncrement(dropdownOptionId)
+		const dropdownId = event.target.parentNode.parentNode.parentNode.parentNode.id
+		this.props.dropdownValueIncrement(dropdownOptionId, dropdownId)
 	}
 
 	render() {
 		const {option} = this.props;
-		const dropdownValue = this.props.dropdownsData.dropdownValues[option.id]
+		const dropdownValue = this.props.dropdownsData.guestsDropdownData.values[option.id]
 		return (
 			<div className="dropdown__option" id={option.id} value={dropdownValue}>{option.name}
 				<div className="dropdown__buttons">
@@ -36,26 +38,62 @@ class DropdownOption extends Component {
 
 export class Dropdown extends Component {
 	state = {
-		isActive: false
+		isOpen: false
 	}
 
 	toggleActive = () => {
 		this.setState({
-			isActive: !this.state.isActive
+			isOpen: !this.state.isOpen
 		})
 	}
 
+	dropdownClear = (event) => {
+		const dropdownId = event.target.parentNode.parentNode.parentNode.id;
+		this.props.dropdownClear(dropdownId);
+	}
+
 	render() {
-		const {id, header, placeholder, options, hideChoiceButtons} = this.props;
-		const {isActive} = this.state;
+		const {id, header, options, hideChoiceButtons} = this.props;
+		const lowerHeader = this.props.dropdownsData[id + 'DropdownData'].header;
+		// const mainOptionId = this.props.dropdownsData[id + 'DropdownData'].mainOptionId;
+
+		const mainOptionId = this.props.dropdownsData[id + 'DropdownData'].mainOptionId ?
+		this.props.dropdownsData[id + 'DropdownData'].mainOptionId : 'Main Option';
+
+		const dropdownValues = this.props.dropdownsData[id + 'DropdownData'].values;
+
+		let mainOptionValue = 1;
+		let isClearable = false;
+		for (let [optionId, optionValue] of Object.entries(dropdownValues)) {
+			if (mainOptionId === optionId) {
+				mainOptionValue = optionValue
+			}
+			if (optionValue > 0) {
+				isClearable = true;
+			}
+		};
+		let isApplicable = true;
+		if (mainOptionValue < 1) {
+			isApplicable = false;
+		};
+
+		const {isOpen} = this.state;
 
 		const selectClasses = classNames(
 			'dropdown__select',
-			{'dropdown__select_active': isActive}
+			{'dropdown__select_active': isOpen}
 		);
 		const optionsWrapClasses = classNames(
 			'dropdown__options',
-			{'dropdown__options_active': isActive}
+			{'dropdown__options_active': isOpen}
+		);
+		const clearButtonClasses = classNames(
+			'clear-button',
+			{'clear-button_disabled': !isClearable}
+		);
+		const applyButtonClasses = classNames(
+			'apply-button',
+			{'apply-button_disabled': !isApplicable}
 		);
 
 		return (
@@ -63,7 +101,7 @@ export class Dropdown extends Component {
 				<h3 className='dropdown__header'>{header}
 					<span/>
 				</h3>
-				<div className={selectClasses} onClick={this.toggleActive}>{placeholder}
+				<div className={selectClasses} onClick={this.toggleActive}>{lowerHeader}
 					<span/>
 				</div>
 				<div className={optionsWrapClasses}>
@@ -78,8 +116,9 @@ export class Dropdown extends Component {
 					})}
 					{!hideChoiceButtons && (
 						<div className='dropdown__choice-buttons'>
-							<a className='clear-button' href="#">ОЧИСТИТЬ</a>
-							<a className='apply-button' href="#">ПРИМЕНИТЬ</a>
+							<button className={clearButtonClasses} disabled={!isClearable}
+								onClick={this.dropdownClear}>ОЧИСТИТЬ</button>
+							<button className={applyButtonClasses} disabled={!isApplicable}>ПРИМЕНИТЬ</button>
 						</div>
 					)}
 				</div>

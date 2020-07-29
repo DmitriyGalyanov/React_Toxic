@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {dropdownValueIncrement,
-				dropdownValueDecrement} from 'actions/dropdownsActions.js'
+				dropdownValueDecrement,
+				dropdownClear} from 'actions/dropdownsActions.js'
 
 import {Header} from 'Components/Header/Header.jsx'
 import {Footer} from 'Components/Footer/Footer.jsx'
@@ -20,13 +21,18 @@ function PageNotFound() {
 
 class MainContainer extends Component {
 
-	dropdownValueIncrement = (dropdownOptionId) => {
+	dropdownValueIncrement = (dropdownOptionId, dropdownId) => {
 		const {dropdownValueIncrementAction} = this.props;
-		dropdownValueIncrementAction(dropdownOptionId);
+		dropdownValueIncrementAction(dropdownOptionId, dropdownId);
 	}
-	dropdownValueDecrement = (dropdownOptionId) => {
+	dropdownValueDecrement = (dropdownOptionId, dropdownId) => {
 		const {dropdownValueDecrementAction} = this.props;
-		dropdownValueDecrementAction(dropdownOptionId);
+		dropdownValueDecrementAction(dropdownOptionId, dropdownId);
+	}
+
+	dropdownClear = (dropdownId) => {
+		const {dropdownClearAction} = this.props;
+		dropdownClearAction(dropdownId);
 	}
 
 	render() {
@@ -43,6 +49,7 @@ class MainContainer extends Component {
 									render={() => <LandingPage dropdownsData={dropdownsData}
 									dropdownValueIncrement={this.dropdownValueIncrement}
 									dropdownValueDecrement={this.dropdownValueDecrement}
+									dropdownClear={this.dropdownClear}
 									/>}/>
 								<Route exact path='/registration'
 									render={() => <RegistrationPage {...this.props}/>}/>
@@ -70,10 +77,12 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		dropdownValueIncrementAction: (dropdownOptionId) =>
-			dispatch(dropdownValueIncrement(dropdownOptionId)),
-		dropdownValueDecrementAction: (dropdownOptionId) =>
-			dispatch(dropdownValueDecrement(dropdownOptionId)),
+		dropdownValueIncrementAction: (dropdownOptionId, dropdownId) =>
+			dispatch(dropdownValueIncrement(dropdownOptionId, dropdownId)),
+		dropdownValueDecrementAction: (dropdownOptionId, dropdownId) =>
+			dispatch(dropdownValueDecrement(dropdownOptionId, dropdownId)),
+		dropdownClearAction: (dropdownId) =>
+			dispatch(dropdownClear(dropdownId)),
 	}
 }
 
