@@ -9,8 +9,6 @@ import './RoomSelection.scss';
 export class RoomSelection extends Component {
 
 	render() {
-
-{/* <div class="room-selection"><a class="simple-button simple-button_style_filled simple-button_style_payment simple-button_style_inside-form" href="#" data-action="">ПОДОБРАТЬ НОМЕР<span></span></a></div> */}
 		
 		return (
 			<div className='room-selection'>

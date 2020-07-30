@@ -55,7 +55,6 @@ export class Dropdown extends Component {
 	render() {
 		const {id, header, options, hideChoiceButtons} = this.props;
 		const lowerHeader = this.props.dropdownsData[id + 'DropdownData'].header;
-		// const mainOptionId = this.props.dropdownsData[id + 'DropdownData'].mainOptionId;
 
 		const mainOptionId = this.props.dropdownsData[id + 'DropdownData'].mainOptionId ?
 		this.props.dropdownsData[id + 'DropdownData'].mainOptionId : 'Main Option';

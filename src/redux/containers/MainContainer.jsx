@@ -44,7 +44,6 @@ class MainContainer extends Component {
 
 	render() {
 		const {dropdownsData, datepickersData} = this.props;
-		// const props = this.props;
 		return (
 			<div className="App">
 				<BrowserRouter>
@@ -52,7 +51,6 @@ class MainContainer extends Component {
 					<main>
 							<Switch>
 								<Route exact path='/'
-									// render={() => <LandingPage {...this.props}/>}/>
 									render={() => <LandingPage dropdownsData={dropdownsData}
 									dropdownValueIncrement={this.dropdownValueIncrement}
 									dropdownValueDecrement={this.dropdownValueDecrement}
@@ -100,5 +98,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer)
-
-// export default MainContainer;
