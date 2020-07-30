@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import {Link} from 'react-router-dom';
 
-// import {StyledButton} from './buttonStyles.js';
 import './Button.scss';
 
 export class Button extends Component {
@@ -27,19 +26,3 @@ export class Button extends Component {
 		</Link>);
 	}
 }
-
-
-
-// export class Button extends Component {
-
-// 	render() {
-// 		const props = this.props;
-// 		return (
-// 		<StyledButton {...props}>
-// 			{this.props.label}
-// 			{this.props.payment && (
-// 				<span/>
-// 			)}
-// 		</StyledButton>);
-// 	}
-// }

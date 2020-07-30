@@ -6,6 +6,8 @@ import {dropdownValueIncrement,
 				dropdownValueDecrement,
 				dropdownClear} from 'actions/dropdownsActions.js'
 
+import {datepickerApply} from 'actions/datePickerActions.js'
+
 import {Header} from 'Components/Header/Header.jsx'
 import {Footer} from 'Components/Footer/Footer.jsx'
 
@@ -35,8 +37,13 @@ class MainContainer extends Component {
 		dropdownClearAction(dropdownId);
 	}
 
+	datepickerApply = (datepickerId, startDate, endDate) => {
+		const {datepickerApplyAction} = this.props;
+		datepickerApplyAction(datepickerId, startDate, endDate);
+	}
+
 	render() {
-		const {dropdownsData} = this.props;
+		const {dropdownsData, datepickersData} = this.props;
 		// const props = this.props;
 		return (
 			<div className="App">
@@ -50,6 +57,8 @@ class MainContainer extends Component {
 									dropdownValueIncrement={this.dropdownValueIncrement}
 									dropdownValueDecrement={this.dropdownValueDecrement}
 									dropdownClear={this.dropdownClear}
+									datepickersData={datepickersData}
+									datepickerApply={this.datepickerApply}
 									/>}/>
 								<Route exact path='/registration'
 									render={() => <RegistrationPage {...this.props}/>}/>
@@ -68,9 +77,11 @@ class MainContainer extends Component {
 
 function mapStateToProps(state, ownProps) {
 	const dropdownsData = state.dropdownsData.entries;
+	const datepickersData = state.datepickersData.entries;
 
 	return ({
-		dropdownsData: dropdownsData
+		dropdownsData: dropdownsData,
+		datepickersData: datepickersData
 	})
 	// this return data (Object) goes to MainContainer props
 }
@@ -83,6 +94,8 @@ function mapDispatchToProps(dispatch) {
 			dispatch(dropdownValueDecrement(dropdownOptionId, dropdownId)),
 		dropdownClearAction: (dropdownId) =>
 			dispatch(dropdownClear(dropdownId)),
+		datepickerApplyAction: (datepickerId, startDate, endDate) =>
+			dispatch(datepickerApply(datepickerId, startDate, endDate))
 	}
 }
 

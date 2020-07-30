@@ -118,7 +118,8 @@ export class Dropdown extends Component {
 						<div className='dropdown__choice-buttons'>
 							<button className={clearButtonClasses} disabled={!isClearable}
 								onClick={this.dropdownClear}>ОЧИСТИТЬ</button>
-							<button className={applyButtonClasses} disabled={!isApplicable}>ПРИМЕНИТЬ</button>
+							<button className={applyButtonClasses} disabled={!isApplicable}
+								onClick={this.toggleActive}>ПРИМЕНИТЬ</button>
 						</div>
 					)}
 				</div>

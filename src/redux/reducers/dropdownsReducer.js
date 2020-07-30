@@ -91,8 +91,6 @@ export const dropdownsReducer = (state = initialState, action) => {
 				entries: updatedEntries
 			})
 		}
-		default: {
-			return state
-		};
+		default: return state;
 	}
 }

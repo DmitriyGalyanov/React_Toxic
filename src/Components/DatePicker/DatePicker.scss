@@ -1,0 +1,193 @@
+@import 'src/colors.scss';
+
+.date-dropdowns-wrap {
+	display: flex; justify-content: space-between;
+	max-width: 320px;
+	width: 100%;
+}
+@media (max-width: 576px) {
+	.date-dropdown-wrap {
+		flex-direction: column;
+		.date-dropdown {
+			width: 100%;
+		}
+	}
+}
+.date-dropdown__header {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 15px;
+	text-transform: uppercase;
+	color: $darkShadeColor;
+	margin-bottom: 5px;
+}
+.date-dropdown__select {
+	cursor: pointer;
+	position: relative;
+	padding: 16px 0 16px 15px;
+	width: 150px; box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+	background: #fff;
+	border: 1px solid rgba(31, 32, 65, 0.25);
+	border-radius: 4px;
+	&:focus {
+		outline: none;
+	}
+	&::after{
+		content: '';
+		display: block; position: absolute;
+		right: 15px; bottom: calc(50% - 2px);
+		width: 8px; height: 8px;
+		border-right: 2px solid transparentize($darkShadeColor, 0.5);
+		border-bottom: 2px solid transparentize($darkShadeColor, 0.5);
+		transform: rotate(45deg);
+		margin-top: 13px;
+	}
+}
+
+
+.date-dropdowns-wrap+div {
+	position: absolute;
+}
+.calendar {
+	// transition: all 1s ease;
+	position: absolute; 
+	z-index: 5;
+}
+.calendar_hide {
+	opacity: 0; top: -2000px;
+}
+.calendar_show {
+	top: 5px; opacity: 1;
+}
+.calendar_styler {
+	font-family: 'Montserrat', sans-serif;
+	padding: 20px; box-sizing: border-box;
+	.react-datepicker__header {
+		padding: 0;
+		background-color: #fff;
+		border: none;
+	}
+	.react-datepicker__navigation {
+		top: 20px;
+		display: block; border: none;
+		outline: none;
+		position: absolute;
+		width: 14px; height: 2px;
+		width: 32px; height: 24px;
+		border-radius: 4px;
+		background: url(./arrow.svg) no-repeat center center, transparent;
+		&:hover {
+			background: url(./arrow.svg) rgb(250, 250, 250) no-repeat center center;
+		}
+		&--next {
+			transform: rotate(180deg);
+			right: 20px;
+		}
+		&--previous {
+			left: 20px;
+		}
+	}
+	.react-datepicker__month-container {
+		float: none;
+	}
+	.react-datepicker__month {
+		margin: 0;
+	}
+	.react-datepicker__current-month {
+		font-weight: bold; font-size: 19px;
+		color: $darkShadeColor;
+		border: none;
+		min-height: 24px; line-height: 24px;
+	}
+	
+	.react-datepicker__day-names {
+		padding-top: 30px;
+		display: flex; justify-content: space-between;
+		text-align: center;
+	}
+	.react-datepicker__day-name {
+		font-family: 'Montserrat', sans-serif;
+		margin: 0;
+		text-transform: capitalize;
+		font-weight: bold;
+		font-size: 12px;
+		line-height: 40px; width: 40px;
+		text-align: center;
+		color: $primaryColor;
+	}
+	.react-datepicker__week {
+		display: flex; justify-content: space-between;
+	}
+	.react-datepicker__day {
+		width: 40px; height: 40px; margin: 0;
+		border-radius: 20px;
+		line-height: 40px;
+		&:hover, &--selected {
+			color: #fff;
+			background: linear-gradient(180deg, $primaryColor 0%, $gradientColor 100%)!important;
+		}
+		&--today {
+			color: #fff!important;
+			background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)!important;
+		}
+		&--in-range, &--in-selecting-range {
+			background: transparent;
+			position: relative;
+			color: black;
+				&:after {
+					content: ''; width: 100%; height: 100%;
+					position: absolute; left: 0;
+					background: linear-gradient(180deg, $primaryColor 0%, $gradientColor 100%);
+					opacity: 0.25;
+				}
+		}
+
+		&--range-start, &--selecting-range-start,
+		&--range-end {
+			color: #fff;
+			&:after {
+				content: ''; width: 50%; height: 100%;
+				position: absolute;
+				background: linear-gradient(180deg, $primaryColor 0%, #8BA4F9 100%);
+				opacity: 0.25;
+			}
+		}
+		&--range-start, &--selecting-range-start {
+			&:after {
+				left: 50%;
+			}
+		}
+		&--range-end {
+			background: linear-gradient(180deg, $primaryColor 0%, $gradientColor 100%)!important;
+			&:after {
+				right: 50%;
+			}
+		}
+		&--keyboard-selected {
+			background-color: #fff; color: #000;
+		}
+	}
+	.datepicker__buttons {
+		padding-top: 20px;
+		display: flex;
+		justify-content: space-between;
+		.date-picker__button {
+			cursor: pointer; outline: none;
+			border: none; background: inherit;
+			text-transform: uppercase;
+			flex: inherit;
+			height: 15px;
+			color: transparentize($darkShadeColor, 0.5);
+			font-size: 12px; font-weight: bold;
+		}
+		.date-picker__button_apply {
+			color: $primaryColor;
+			&_disabled {
+				opacity: 0.5;
+				cursor: default;
+			}
+		}
+	}
+}
