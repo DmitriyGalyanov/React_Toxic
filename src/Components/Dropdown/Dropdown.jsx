@@ -18,10 +18,11 @@ class DropdownOption extends Component {
 	}
 
 	render() {
-		const {option} = this.props;
-		const dropdownValue = this.props.dropdownsData.guestsDropdownData.values[option.id]
+		const {option, dropdownData} = this.props;
+		const dropdownValue = dropdownData.values[option.id];
+		const optionName = dropdownData.names[option.id];
 		return (
-			<div className="dropdown__option" id={option.id} value={dropdownValue}>{option.name}
+			<div className="dropdown__option" id={option.id} value={dropdownValue}>{optionName}
 				<div className="dropdown__buttons">
 					<button type="button"
 					disabled={dropdownValue <= 0}
@@ -107,7 +108,7 @@ export class Dropdown extends Component {
 					{options.map((option, index) => {
 						return (
 							<DropdownOption key={index} option={option}
-								dropdownsData={this.props.dropdownsData}
+								dropdownData={this.props.dropdownsData[id + 'DropdownData']}
 								dropdownValueIncrement={this.props.dropdownValueIncrement}
 								dropdownValueDecrement={this.props.dropdownValueDecrement}
 							/>

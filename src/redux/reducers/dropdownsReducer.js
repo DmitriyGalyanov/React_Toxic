@@ -16,6 +16,11 @@ const initialState = {
 				children: 0,
 				babies: 0,
 			},
+			names: {
+				'adults': 'Взрослые',
+				'children': 'Дети',
+				'babies': 'Младенцы'
+			}
 		},
 		loading: false,
 		error: false
@@ -49,13 +54,14 @@ export const dropdownsReducer = (state = initialState, action) => {
 			let updatedEntries = Object.assign({}, state.entries)
 			const dropdownValuesId = (dropdownId + 'DropdownData')
 			const dropdownOptionsValues = updatedEntries[dropdownValuesId].values;
+			const dropdownOptionsNames = updatedEntries[dropdownValuesId].names;
 			const mainOptionId = updatedEntries[dropdownValuesId].mainOptionId ?
 			updatedEntries[dropdownValuesId].mainOptionId : 'Main Option';
 
 			let headerText = ``
 			for (let [optionId, optionValue] of Object.entries(dropdownOptionsValues)) {
 				if (optionValue > 0) {
-					headerText += `${optionValue} ${optionId}, `
+					headerText += `${optionValue} ${dropdownOptionsNames[optionId]}, `
 				}
 				// console.log(optionId.slice(0, -1))
 			};
@@ -64,7 +70,7 @@ export const dropdownsReducer = (state = initialState, action) => {
 				updatedEntries[dropdownValuesId].header = headerText
 			} else {
 				updatedEntries[dropdownValuesId].header = `
-				Specify ${mainOptionId} please
+				Укажите количество ${dropdownOptionsNames[mainOptionId]}
 				`.trim()
 			}
 			
@@ -78,13 +84,14 @@ export const dropdownsReducer = (state = initialState, action) => {
 			let updatedEntries = Object.assign({}, state.entries)
 			const dropdownValuesId = (dropdownId + 'DropdownData')
 			const dropdownOptionsValues = updatedEntries[dropdownValuesId].values;
+			const dropdownOptionsNames = updatedEntries[dropdownValuesId].names;
 			const mainOptionId = updatedEntries[dropdownValuesId].mainOptionId ?
 			updatedEntries[dropdownValuesId].mainOptionId : 'Main Option';
 			for (let option of Object.keys(dropdownOptionsValues)) {
 				dropdownOptionsValues[option] = 0;
 			}
 			updatedEntries[dropdownValuesId].header = `
-				Specify ${mainOptionId} please
+			Укажите количество ${dropdownOptionsNames[mainOptionId]}
 				`.trim()
 			return ({
 				...state,

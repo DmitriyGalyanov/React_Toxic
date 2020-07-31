@@ -52,8 +52,8 @@
 }
 .calendar {
 	// transition: all 1s ease;
-	position: absolute; 
-	z-index: 5;
+	position: absolute;
+	z-index: 20;
 }
 .calendar_hide {
 	opacity: 0; top: -2000px;
@@ -148,6 +148,7 @@
 		&--range-end {
 			color: #fff;
 			&:after {
+				z-index: -1;
 				content: ''; width: 50%; height: 100%;
 				position: absolute;
 				background: linear-gradient(180deg, $primaryColor 0%, #8BA4F9 100%);

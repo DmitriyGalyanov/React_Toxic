@@ -3,7 +3,10 @@ import classNames from 'classnames';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import ru from 'date-fns/locale/ru';
 import './DatePicker.scss';
+registerLocale('ru', ru);
 
 
 export function DatePickers(props) {
@@ -27,7 +30,7 @@ export function DatePickers(props) {
 
 	const startTime = `${startTimeDay}.${startTimeMonth}.${startDate.getFullYear()}`;
 
-	let endTime = 'dd.mm.yyyy'
+	let endTime = 'ДД.ММ.ГГГГ'
 	if (endDate !== null) {
 		let endTimeDay = endDate.getDate() > 9 ? `${endDate.getDate()}` :
 			`0${endDate.getDate()}`;
@@ -96,12 +99,15 @@ export function DatePickers(props) {
 			<DatePicker
 				selected={startDate}
 				onChange={onChange}
+				minDate={new Date()}
+				// {/* check if that would trigger error after visiting later than chosen time*/}
 				startDate={startDate}
 				endDate={endDate}
 				selectsRange
 				inline
 				calendarClassName={calendarClassNames}
 				calendarContainer={CalendarWrap}
+				locale="ru"
 			/>
 		</div>
 	);
