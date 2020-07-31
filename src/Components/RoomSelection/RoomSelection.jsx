@@ -30,7 +30,7 @@ export class RoomSelection extends Component {
 					dropdownValueDecrement={this.props.dropdownValueDecrement}
 					dropdownClear={this.props.dropdownClear}/>
 				
-					<Button label='Подобрать номер' href='#'
+					<Button label='Подобрать номер' href='/searchRoom'
 						insideForm filled payment/>
 			</div>
 		)

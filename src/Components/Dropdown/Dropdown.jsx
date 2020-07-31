@@ -25,7 +25,7 @@ class DropdownOption extends Component {
 			<div className="dropdown__option" id={option.id} value={dropdownValue}>{optionName}
 				<div className="dropdown__buttons">
 					<button type="button"
-					disabled={dropdownValue <= 0}
+					disabled={dropdownValue <= option.minValue}
 					onClick={this.handleDecrement}>-</button>
 						<span>{dropdownValue}</span>
 					<button type="button"
@@ -50,32 +50,41 @@ export class Dropdown extends Component {
 
 	dropdownClear = (event) => {
 		const dropdownId = event.target.parentNode.parentNode.parentNode.id;
-		this.props.dropdownClear(dropdownId);
+		const dropdownOptions = this.props.options;
+		this.props.dropdownClear(dropdownId, dropdownOptions);
 	}
 
 	render() {
 		const {id, header, options, hideChoiceButtons} = this.props;
-		const lowerHeader = this.props.dropdownsData[id + 'DropdownData'].header;
+		const dropdownData = this.props.dropdownsData[`${id}DropdownData`]
+		const lowerHeader = dropdownData.header;
 
-		const mainOptionId = this.props.dropdownsData[id + 'DropdownData'].mainOptionId ?
-		this.props.dropdownsData[id + 'DropdownData'].mainOptionId : 'Main Option';
+		const mainOptionId = dropdownData.mainOptionId ?
+		dropdownData.mainOptionId : 'Main Option Doesn\'t exist';
 
-		const dropdownValues = this.props.dropdownsData[id + 'DropdownData'].values;
+		const dropdownValues = dropdownData.values;
 
-		let mainOptionValue = 1;
+		let mainOptionValue = 1,
+				mainOptionNumber = null;
 		let isClearable = false;
+		let optionsCounter = 0;
 		for (let [optionId, optionValue] of Object.entries(dropdownValues)) {
 			if (mainOptionId === optionId) {
 				mainOptionValue = optionValue
+				mainOptionNumber = optionsCounter
 			}
-			if (optionValue > 0) {
+			if (optionValue > options[optionsCounter].minValue) {
 				isClearable = true;
 			}
+			optionsCounter++;
 		};
 		let isApplicable = true;
-		if (mainOptionValue < 1) {
-			isApplicable = false;
-		};
+		if (mainOptionNumber !== null) {
+			if (mainOptionValue < options[mainOptionNumber].minValue) {
+				isApplicable = false;
+			};
+		}
+		
 
 		const {isOpen} = this.state;
 

@@ -8,6 +8,10 @@ import {dropdownValueIncrement,
 
 import {datepickerApply} from 'actions/datePickerActions.js'
 
+import {costRangeSliderApply} from 'actions/costRangeSliderActions.js'
+
+import {checkboxToggle} from 'actions/checkboxActions.js'
+
 import {Header} from 'Components/Header/Header.jsx'
 import {Footer} from 'Components/Footer/Footer.jsx'
 
@@ -16,6 +20,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import {RegistrationPage} from 'pages/RegistrationPage/RegistrationPage.jsx'
 import {LoginPage} from 'pages/LoginPage/LoginPage.jsx'
 import {LandingPage} from 'pages/LandingPage/LandingPage.jsx'
+import { SearchRoomPage } from 'pages/SearchRoomPage/SearchRoomPage.jsx';
 
 function PageNotFound() {
 	return (<div>Page not found</div>)
@@ -32,9 +37,9 @@ class MainContainer extends Component {
 		dropdownValueDecrementAction(dropdownOptionId, dropdownId);
 	}
 
-	dropdownClear = (dropdownId) => {
+	dropdownClear = (dropdownId, dropdownOptions) => {
 		const {dropdownClearAction} = this.props;
-		dropdownClearAction(dropdownId);
+		dropdownClearAction(dropdownId, dropdownOptions);
 	}
 
 	datepickerApply = (datepickerId, startDate, endDate) => {
@@ -42,8 +47,22 @@ class MainContainer extends Component {
 		datepickerApplyAction(datepickerId, startDate, endDate);
 	}
 
+	costRangeSliderApply = (costRangeSliderId, lesserValue, greaterValue) => {
+		const {costRangeSliderApplyAction} = this.props;
+		costRangeSliderApplyAction(costRangeSliderId, lesserValue, greaterValue);
+	}
+
+	checkboxToggle = (checkboxButtonId) => {
+		const {checkboxToggleAction} = this.props;
+		checkboxToggleAction(checkboxButtonId);
+	}
+
 	render() {
-		const {dropdownsData, datepickersData} = this.props;
+		const {
+			dropdownsData,
+			datepickersData,
+			costRangeSlidersData,
+			checkboxesData} = this.props;
 		return (
 			<div className="App">
 				<BrowserRouter>
@@ -62,6 +81,20 @@ class MainContainer extends Component {
 									render={() => <RegistrationPage {...this.props}/>}/>
 								<Route exact path='/login'
 									render={() => <LoginPage {...this.props}/>}/>
+								<Route exact path='/searchRoom'
+									render={() => <SearchRoomPage
+									datepickersData={datepickersData}
+									datepickerApply={this.datepickerApply}
+									dropdownsData={dropdownsData}
+									dropdownValueIncrement={this.dropdownValueIncrement}
+									dropdownValueDecrement={this.dropdownValueDecrement}
+									dropdownClear={this.dropdownClear}
+									costRangeSlidersData={costRangeSlidersData}
+									costRangeSliderApply={this.costRangeSliderApply}
+									checkboxesData={checkboxesData}
+									checkboxToggle={this.checkboxToggle}
+									/>}/>
+
 								<Route path='*'
 									component={PageNotFound}/>
 							</Switch>
@@ -76,10 +109,14 @@ class MainContainer extends Component {
 function mapStateToProps(state, ownProps) {
 	const dropdownsData = state.dropdownsData.entries;
 	const datepickersData = state.datepickersData.entries;
+	const costRangeSlidersData = state.costRangeSlidersData.entries;
+	const checkboxesData = state.checkboxesData.entries;
 
 	return ({
 		dropdownsData: dropdownsData,
-		datepickersData: datepickersData
+		datepickersData: datepickersData,
+		costRangeSlidersData: costRangeSlidersData,
+		checkboxesData: checkboxesData
 	})
 	// this return data (Object) goes to MainContainer props
 }
@@ -90,10 +127,14 @@ function mapDispatchToProps(dispatch) {
 			dispatch(dropdownValueIncrement(dropdownOptionId, dropdownId)),
 		dropdownValueDecrementAction: (dropdownOptionId, dropdownId) =>
 			dispatch(dropdownValueDecrement(dropdownOptionId, dropdownId)),
-		dropdownClearAction: (dropdownId) =>
-			dispatch(dropdownClear(dropdownId)),
+		dropdownClearAction: (dropdownId, dropdownOptions) =>
+			dispatch(dropdownClear(dropdownId, dropdownOptions)),
 		datepickerApplyAction: (datepickerId, startDate, endDate) =>
-			dispatch(datepickerApply(datepickerId, startDate, endDate))
+			dispatch(datepickerApply(datepickerId, startDate, endDate)),
+		costRangeSliderApplyAction: (costRangeSliderId, lesserValue, greaterValue) =>
+			dispatch(costRangeSliderApply(costRangeSliderId, lesserValue, greaterValue)),
+		checkboxToggleAction: (checkboxButtonId) =>
+			dispatch(checkboxToggle(checkboxButtonId)),
 	}
 }
 

@@ -5,7 +5,9 @@ const initialState = {
 		mainDatepickerData: {
 			startDate: new Date(),
 			endDate: null
-		}
+		},
+		loading: false,
+		error: false
 	}
 }
 

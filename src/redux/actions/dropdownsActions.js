@@ -24,9 +24,9 @@ export const dropdownHeaderEdit = (dropdownOptionId, dropdownId) => {
 	})
 }
 
-export const dropdownClear = (dropdownId) => {
+export const dropdownClear = (dropdownId, dropdownOptions) => {
 	return ({
 		type: DROPDOWN_CLEAR,
-		payload: dropdownId
+		payload: {dropdownId, dropdownOptions}
 	})
 }

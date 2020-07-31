@@ -38,7 +38,7 @@ export class RegistrationForm extends Component {
 				</form>
 				<p className='registration__for-registered-users'>
 					Уже есть аккаунт на Toxin
-					<Button hollow inside-form label='Войти' href='#'/>
+					<Button hollow inside-form label='Войти' href='/login'/>
 				</p>
 			</div>
 		)

@@ -12,14 +12,29 @@ const initialState = {
 
 			mainOptionId: 'adults',
 			values: {
-				adults: 0,
+				adults: 1,
 				children: 0,
 				babies: 0,
 			},
 			names: {
-				'adults': 'Взрослые',
-				'children': 'Дети',
-				'babies': 'Младенцы'
+				adults: 'Взрослые',
+				children: 'Дети',
+				babies: 'Младенцы'
+			}
+		},
+		roomAmenitiesDropdownData: {
+			header: 'Сколько спален?',
+
+			mainOptionId: 'bedrooms',
+			values: {
+				bedrooms: 1,
+				beds: 1,
+				bathrooms: 1
+			},
+			names: {
+				bedrooms: 'Спальни',
+				beds: 'Кровати',
+				bathrooms: 'Ванные комнаты'
 			}
 		},
 		loading: false,
@@ -52,24 +67,24 @@ export const dropdownsReducer = (state = initialState, action) => {
 		case DROPDOWN_HEADER_EDIT: {
 			const {dropdownId} = action.payload;
 			let updatedEntries = Object.assign({}, state.entries)
-			const dropdownValuesId = (dropdownId + 'DropdownData')
-			const dropdownOptionsValues = updatedEntries[dropdownValuesId].values;
-			const dropdownOptionsNames = updatedEntries[dropdownValuesId].names;
-			const mainOptionId = updatedEntries[dropdownValuesId].mainOptionId ?
-			updatedEntries[dropdownValuesId].mainOptionId : 'Main Option';
+			const dropdownValuesId = (dropdownId + 'DropdownData');
+			const dropdownData = updatedEntries[dropdownValuesId];
+			const dropdownOptionsValues = dropdownData.values;
+			const dropdownOptionsNames = dropdownData.names;
+			const mainOptionId = dropdownData.mainOptionId ?
+			dropdownData.mainOptionId : 'Main Option';
 
 			let headerText = ``
 			for (let [optionId, optionValue] of Object.entries(dropdownOptionsValues)) {
 				if (optionValue > 0) {
-					headerText += `${optionValue} ${dropdownOptionsNames[optionId]}, `
+					headerText += `${dropdownOptionsNames[optionId]}: ${optionValue}, `
 				}
-				// console.log(optionId.slice(0, -1))
 			};
 
-			if (dropdownOptionsValues.adults > 0) {
-				updatedEntries[dropdownValuesId].header = headerText
+			if (dropdownOptionsValues[mainOptionId] > 0) {
+				dropdownData.header = headerText
 			} else {
-				updatedEntries[dropdownValuesId].header = `
+				dropdownData.header = `
 				Укажите количество ${dropdownOptionsNames[mainOptionId]}
 				`.trim()
 			}
@@ -80,24 +95,24 @@ export const dropdownsReducer = (state = initialState, action) => {
 			})
 		};
 		case DROPDOWN_CLEAR: {
-			const dropdownId = action.payload;
+			const {dropdownId, dropdownOptions} = action.payload;
 			let updatedEntries = Object.assign({}, state.entries)
 			const dropdownValuesId = (dropdownId + 'DropdownData')
-			const dropdownOptionsValues = updatedEntries[dropdownValuesId].values;
-			const dropdownOptionsNames = updatedEntries[dropdownValuesId].names;
-			const mainOptionId = updatedEntries[dropdownValuesId].mainOptionId ?
-			updatedEntries[dropdownValuesId].mainOptionId : 'Main Option';
+			const dropdownData = updatedEntries[dropdownValuesId];
+			const dropdownOptionsValues = dropdownData.values;
+
+			let optionsCounter = 0;
 			for (let option of Object.keys(dropdownOptionsValues)) {
-				dropdownOptionsValues[option] = 0;
+				dropdownOptionsValues[option] = dropdownOptions[optionsCounter].minValue;
+				optionsCounter++
 			}
-			updatedEntries[dropdownValuesId].header = `
-			Укажите количество ${dropdownOptionsNames[mainOptionId]}
-				`.trim()
+
 			return ({
 				...state,
 				entries: updatedEntries
 			})
-		}
+		};
+
 		default: return state;
 	}
 }

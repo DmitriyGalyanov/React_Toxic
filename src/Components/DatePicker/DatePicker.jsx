@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import {registerLocale} from "react-datepicker";
 import ru from 'date-fns/locale/ru';
 import './DatePicker.scss';
 registerLocale('ru', ru);
@@ -80,22 +80,36 @@ export function DatePickers(props) {
 	return (
 		<div className='date-picker-wrap'>
 			<div className='date-dropdowns-wrap'>
-				<div className='date-dropdown'>
-					<h3 className='date-dropdown__header'> Прибытие </h3>
-					<div className="date-dropdown__select"
-						onClick={() => toggleCalendarVisibility(!isCalendarVisible)}>
-						{startTime}
-					</div>
-				</div>
+				{!props.singleInput && (
+					<>
+						<div className='date-dropdown'>
+							<h3 className='date-dropdown__header'>Прибытие</h3>
+							<div className="date-dropdown__select"
+								onClick={() => toggleCalendarVisibility(!isCalendarVisible)}>
+								{startTime}
+							</div>
+						</div>
 
-				<div className='date-dropdown'>
-					<h3 className='date-dropdown__header'> Выезд </h3>
-					<div className="date-dropdown__select"
+						<div className='date-dropdown'>
+							<h3 className='date-dropdown__header'>Выезд</h3>
+							<div className="date-dropdown__select"
+								onClick={() => toggleCalendarVisibility(!isCalendarVisible)}>
+								{endTime}
+							</div>
+						</div>
+					</>
+					)}
+				{props.singleInput && (
+					<div className='date-dropdown' style={{width: '100%'}}>
+					<h3 className='date-dropdown__header'>Даты пребывания в отеле</h3>
+					<div className="date-dropdown__select" style={{width: '100%'}}
 						onClick={() => toggleCalendarVisibility(!isCalendarVisible)}>
-						{endTime}
+						{startTime} — {endTime}
 					</div>
 				</div>
+				)}
 			</div>
+
 			<DatePicker
 				selected={startDate}
 				onChange={onChange}
