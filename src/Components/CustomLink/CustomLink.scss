@@ -8,6 +8,7 @@
 	font-size: 12px; text-decoration: none;
 	display: inline-block;
 	color: transparentize($darkShadeColor, 0.5);
+	transition: all 0.4s ease;
 	&:hover {
 		color: $primaryColor!important;
 	}
@@ -20,6 +21,7 @@
 	align-items: center;
 	margin-left: 6px;
 	&:before, &:after {
+		transition: all 0.4s ease;
 		content: '';
 		position: relative;
 		display: block;

@@ -17,7 +17,8 @@
 		font-size: 14px;
 		line-height: 18px;
 		color: transparentize($darkShadeColor, 0.75);
-		}
+	}
+	transition: 1s all ease;
 	&:hover, &:focus {
 		border-color: transparentize($darkShadeColor, 0.5);
 	}

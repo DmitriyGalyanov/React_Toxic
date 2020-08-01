@@ -35,6 +35,10 @@
 			cursor: pointer;
 			display: block;
 			position: absolute; left: 136px;
+			transition: 1s all ease;
+			&:hover {
+				transform: scale(1.15);
+			}
 			.bar {
 				display: block;
 				height: 2px; width: 22px;
@@ -87,8 +91,7 @@
 					background-color: rgba(255, 255, 255, 0.8);
 				}
 				.link-options {
-					// position: static;
-					background: #fff;
+					background: rgba(255, 255, 255, 0.6);
 				}
 				
 			}
