@@ -4,13 +4,16 @@ import {connect} from 'react-redux';
 
 import {dropdownValueIncrement,
 				dropdownValueDecrement,
-				dropdownClear} from 'actions/dropdownsActions.js'
+				dropdownClear,
+				dropdownApply} from 'actions/dropdownsActions.js'
 
 import {datepickerApply} from 'actions/datePickerActions.js'
 
 import {costRangeSliderApply} from 'actions/costRangeSliderActions.js'
 
 import {checkboxToggle} from 'actions/checkboxActions.js'
+
+import {rateButtonApply} from 'actions/rateButtonActions.js'
 
 import {Header} from 'Components/Header/Header.jsx'
 import {Footer} from 'Components/Footer/Footer.jsx'
@@ -42,6 +45,11 @@ class MainContainer extends Component {
 		dropdownClearAction(dropdownId, dropdownOptions);
 	}
 
+	dropdownApply = (dropdownId, dropdownOptions) => {
+		const {dropdownApplyAction} = this.props;
+		dropdownApplyAction(dropdownId, dropdownOptions);
+	}
+
 	datepickerApply = (datepickerId, startDate, endDate) => {
 		const {datepickerApplyAction} = this.props;
 		datepickerApplyAction(datepickerId, startDate, endDate);
@@ -57,12 +65,19 @@ class MainContainer extends Component {
 		checkboxToggleAction(checkboxButtonId);
 	}
 
+	rateButtonApply = (rateButtonId, newRate) => {
+		console.log(rateButtonId, newRate)
+		const {rateButtonApplyAction} = this.props;
+		rateButtonApplyAction(rateButtonId, newRate);
+	}
+
 	render() {
 		const {
 			dropdownsData,
 			datepickersData,
 			costRangeSlidersData,
-			checkboxesData} = this.props;
+			checkboxesData,
+			rateButtonsData} = this.props;
 		return (
 			<div className="App">
 				<BrowserRouter>
@@ -74,6 +89,7 @@ class MainContainer extends Component {
 									dropdownValueIncrement={this.dropdownValueIncrement}
 									dropdownValueDecrement={this.dropdownValueDecrement}
 									dropdownClear={this.dropdownClear}
+									dropdownApply={this.dropdownApply}
 									datepickersData={datepickersData}
 									datepickerApply={this.datepickerApply}
 									/>}/>
@@ -85,14 +101,21 @@ class MainContainer extends Component {
 									render={() => <SearchRoomPage
 									datepickersData={datepickersData}
 									datepickerApply={this.datepickerApply}
+
 									dropdownsData={dropdownsData}
 									dropdownValueIncrement={this.dropdownValueIncrement}
 									dropdownValueDecrement={this.dropdownValueDecrement}
 									dropdownClear={this.dropdownClear}
+									dropdownApply={this.dropdownApply}
+
 									costRangeSlidersData={costRangeSlidersData}
 									costRangeSliderApply={this.costRangeSliderApply}
+
 									checkboxesData={checkboxesData}
 									checkboxToggle={this.checkboxToggle}
+
+									rateButtonsData={rateButtonsData}
+									rateButtonApply={this.rateButtonApply}
 									/>}/>
 
 								<Route path='*'
@@ -111,12 +134,14 @@ function mapStateToProps(state, ownProps) {
 	const datepickersData = state.datepickersData.entries;
 	const costRangeSlidersData = state.costRangeSlidersData.entries;
 	const checkboxesData = state.checkboxesData.entries;
+	const rateButtonsData = state.rateButtonsData.entries;
 
 	return ({
 		dropdownsData: dropdownsData,
 		datepickersData: datepickersData,
 		costRangeSlidersData: costRangeSlidersData,
-		checkboxesData: checkboxesData
+		checkboxesData: checkboxesData,
+		rateButtonsData: rateButtonsData
 	})
 	// this return data (Object) goes to MainContainer props
 }
@@ -129,12 +154,22 @@ function mapDispatchToProps(dispatch) {
 			dispatch(dropdownValueDecrement(dropdownOptionId, dropdownId)),
 		dropdownClearAction: (dropdownId, dropdownOptions) =>
 			dispatch(dropdownClear(dropdownId, dropdownOptions)),
+		dropdownApplyAction: (dropdownId, dropdownOptions) =>
+			dispatch(dropdownApply(dropdownId, dropdownOptions)),
+
 		datepickerApplyAction: (datepickerId, startDate, endDate) =>
 			dispatch(datepickerApply(datepickerId, startDate, endDate)),
+
 		costRangeSliderApplyAction: (costRangeSliderId, lesserValue, greaterValue) =>
 			dispatch(costRangeSliderApply(costRangeSliderId, lesserValue, greaterValue)),
+
 		checkboxToggleAction: (checkboxButtonId) =>
 			dispatch(checkboxToggle(checkboxButtonId)),
+
+		rateButtonApplyAction: (rateButtonId, newRate) =>
+			dispatch(rateButtonApply(rateButtonId, newRate)),
+
+		
 	}
 }
 

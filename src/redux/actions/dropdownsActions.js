@@ -2,6 +2,7 @@ export const DROPDOWN_VALUE_INCREMENT = 'DROPDOWN_VALUE_INCREMENT'
 export const DROPDOWN_VALUE_DECREMENT = 'DROPDOWN_VALUE_DECREMENT'
 export const DROPDOWN_HEADER_EDIT = 'DROPDOWN_HEADER_EDIT'
 export const DROPDOWN_CLEAR = 'DROPDOWN_CLEAR'
+export const DROPDOWN_APPLY = 'DROPDOWN_APPLY'
 
 export const dropdownValueIncrement = (dropdownOptionId, dropdownId) => {
 	return ({
@@ -27,6 +28,13 @@ export const dropdownHeaderEdit = (dropdownOptionId, dropdownId) => {
 export const dropdownClear = (dropdownId, dropdownOptions) => {
 	return ({
 		type: DROPDOWN_CLEAR,
+		payload: {dropdownId, dropdownOptions}
+	})
+}
+
+export const dropdownApply = (dropdownId, dropdownOptions) => {
+	return ({
+		type: DROPDOWN_APPLY,
 		payload: {dropdownId, dropdownOptions}
 	})
 }

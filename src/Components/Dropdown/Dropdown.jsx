@@ -54,6 +54,13 @@ export class Dropdown extends Component {
 		this.props.dropdownClear(dropdownId, dropdownOptions);
 	}
 
+	dropdownApply = (event) => {
+		this.toggleActive()
+		const dropdownId = event.target.parentNode.parentNode.parentNode.id;
+		const dropdownOptions = this.props.options;
+		this.props.dropdownApply(dropdownId, dropdownOptions);
+	}
+
 	render() {
 		const {id, header, options, hideChoiceButtons} = this.props;
 		const dropdownData = this.props.dropdownsData[`${id}DropdownData`]
@@ -128,7 +135,7 @@ export class Dropdown extends Component {
 							<button className={clearButtonClasses} disabled={!isClearable}
 								onClick={this.dropdownClear}>ОЧИСТИТЬ</button>
 							<button className={applyButtonClasses} disabled={!isApplicable}
-								onClick={this.toggleActive}>ПРИМЕНИТЬ</button>
+								onClick={this.dropdownApply}>ПРИМЕНИТЬ</button>
 						</div>
 					)}
 				</div>

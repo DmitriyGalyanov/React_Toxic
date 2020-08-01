@@ -2,7 +2,8 @@ import {
 	DROPDOWN_VALUE_INCREMENT,
 	DROPDOWN_VALUE_DECREMENT,
 	DROPDOWN_HEADER_EDIT,
-	DROPDOWN_CLEAR}
+	DROPDOWN_CLEAR,
+	DROPDOWN_APPLY}
 from 'actions/dropdownsActions.js'
 
 const initialState = {
@@ -80,6 +81,7 @@ export const dropdownsReducer = (state = initialState, action) => {
 					headerText += `${dropdownOptionsNames[optionId]}: ${optionValue}, `
 				}
 			};
+			headerText = headerText.slice(0, headerText.length - 2);
 
 			if (dropdownOptionsValues[mainOptionId] > 0) {
 				dropdownData.header = headerText
@@ -112,6 +114,7 @@ export const dropdownsReducer = (state = initialState, action) => {
 				entries: updatedEntries
 			})
 		};
+		case DROPDOWN_APPLY: return state;
 
 		default: return state;
 	}

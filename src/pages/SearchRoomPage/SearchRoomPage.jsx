@@ -5,6 +5,8 @@ import {Dropdown} from 'Components/Dropdown/Dropdown.jsx';
 import {CostRangeSlider} from 'Components/CostRangeSlider/CostRangeSlider.jsx';
 import {Checkbox} from 'Components/Checkbox/Checkbox.jsx';
 
+import {RoomSpotlight} from 'Components/RoomSpotlight/RoomSpotlight.jsx'
+
 import './SearchRoomPage.scss';
 
 
@@ -26,7 +28,8 @@ export function SearchRoomPage(props) {
 					dropdownsData={props.dropdownsData}
 					dropdownValueIncrement={props.dropdownValueIncrement}
 					dropdownValueDecrement={props.dropdownValueDecrement}
-					dropdownClear={props.dropdownClear}/>
+					dropdownClear={props.dropdownClear}
+					dropdownApply={props.dropdownApply}/>
 				<CostRangeSlider {...props} sliderId='main'/>
 				<Checkbox {...props} header={'Основные удобства'}
 					options={[
@@ -55,7 +58,8 @@ export function SearchRoomPage(props) {
 					dropdownsData={props.dropdownsData}
 					dropdownValueIncrement={props.dropdownValueIncrement}
 					dropdownValueDecrement={props.dropdownValueDecrement}
-					dropdownClear={props.dropdownClear}/>
+					dropdownClear={props.dropdownClear}
+					dropdownApply={props.dropdownApply}/>
 					<Checkbox {...props} header={'Дополнительные удобства'}
 					options={[
 						{label: 'Завтрак',
@@ -72,6 +76,9 @@ export function SearchRoomPage(props) {
 						key: 'shampoo'}
 					]}/>
 			</aside>
+			<RoomSpotlight
+				rateButtonsData={props.rateButtonsData}
+				rateButtonApply={props.rateButtonApply}/>
 		</div>
 
 	)

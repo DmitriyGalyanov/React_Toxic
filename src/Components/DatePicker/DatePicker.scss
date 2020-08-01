@@ -38,32 +38,40 @@
 	}
 	&::after{
 		content: '';
+		transition: all 1s ease;
 		display: block; position: absolute;
 		right: 15px; bottom: calc(50% - 2px);
 		width: 8px; height: 8px;
 		border-right: 2px solid transparentize($darkShadeColor, 0.5);
 		border-bottom: 2px solid transparentize($darkShadeColor, 0.5);
 		transform: rotate(45deg);
-		margin-top: 13px;
+		// margin-top: 13px;
+		top: 16px;
+	}
+	&_active::after {
+		transform: rotate(-135deg);
+		// margin-top: 19px;
+		top: 18px;
 	}
 }
 
 
-.date-dropdowns-wrap+div {
+.calendar-wrap {
+	z-index: 20;
 	position: absolute;
+	transition: all 1.5s ease;
+	transform: scaleY(0); transform-origin: top;
+	opacity: 0;
+	&_visible {
+		transform: scaleY(1);
+		opacity: 1;
+	}
 }
 .calendar {
-	// transition: all 1s ease;
 	position: absolute;
-	z-index: 20;
-}
-.calendar_hide {
-	opacity: 0; top: -2000px;
-}
-.calendar_show {
-	top: 5px; opacity: 1;
 }
 .calendar_styler {
+	top: 5px;
 	font-family: 'Montserrat', sans-serif;
 	padding: 20px; box-sizing: border-box;
 	.react-datepicker__header {

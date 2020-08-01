@@ -28,7 +28,8 @@ export class RoomSelection extends Component {
 					dropdownsData={this.props.dropdownsData}
 					dropdownValueIncrement={this.props.dropdownValueIncrement}
 					dropdownValueDecrement={this.props.dropdownValueDecrement}
-					dropdownClear={this.props.dropdownClear}/>
+					dropdownClear={this.props.dropdownClear}
+					dropdownApply={this.props.dropdownApply}/>
 				
 					<Button label='Подобрать номер' href='/searchRoom'
 						insideForm filled payment/>

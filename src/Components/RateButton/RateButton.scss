@@ -1,0 +1,14 @@
+.rate-button-wrap {
+	display: flex; flex-direction: row;
+	.rate-button__star {
+		transition: all 1s ease;
+		cursor: pointer;
+		width: 24px; height: 24px;
+		background: url('./rate-button-star.svg') no-repeat center center;
+		&_active {
+			background-image: url('./rate-button-star_active.svg');
+		}
+	}
+}
+
+// is hover needed? 

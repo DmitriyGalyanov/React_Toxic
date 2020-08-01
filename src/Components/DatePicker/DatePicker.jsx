@@ -41,11 +41,9 @@ export function DatePickers(props) {
 	};
 
 	const [isCalendarVisible, toggleCalendarVisibility] = useState(false);
-	let calendarClassNames = classNames(
-		'calendar',
-		'calendar_styler',
-		{'calendar_hide': !isCalendarVisible},
-		{'calendar_show': isCalendarVisible}
+	let calendarWrapClasses = classNames(
+		'calendar-wrap',
+		{'calendar-wrap_visible': isCalendarVisible}
 	);
 	
 	let datePickerClearButtonClasses = classNames(
@@ -77,6 +75,11 @@ export function DatePickers(props) {
 		);
 	};
 
+
+	let dateDropdownSelectClasses = classNames(
+		'date-dropdown__select',
+		{'date-dropdown__select_active': isCalendarVisible}
+	)
 	return (
 		<div className='date-picker-wrap'>
 			<div className='date-dropdowns-wrap'>
@@ -84,7 +87,7 @@ export function DatePickers(props) {
 					<>
 						<div className='date-dropdown'>
 							<h3 className='date-dropdown__header'>Прибытие</h3>
-							<div className="date-dropdown__select"
+							<div className={dateDropdownSelectClasses}
 								onClick={() => toggleCalendarVisibility(!isCalendarVisible)}>
 								{startTime}
 							</div>
@@ -92,7 +95,7 @@ export function DatePickers(props) {
 
 						<div className='date-dropdown'>
 							<h3 className='date-dropdown__header'>Выезд</h3>
-							<div className="date-dropdown__select"
+							<div className={dateDropdownSelectClasses}
 								onClick={() => toggleCalendarVisibility(!isCalendarVisible)}>
 								{endTime}
 							</div>
@@ -102,7 +105,7 @@ export function DatePickers(props) {
 				{props.singleInput && (
 					<div className='date-dropdown' style={{width: '100%'}}>
 					<h3 className='date-dropdown__header'>Даты пребывания в отеле</h3>
-					<div className="date-dropdown__select" style={{width: '100%'}}
+					<div className={dateDropdownSelectClasses} style={{width: '100%'}}
 						onClick={() => toggleCalendarVisibility(!isCalendarVisible)}>
 						{startTime} — {endTime}
 					</div>
@@ -110,19 +113,21 @@ export function DatePickers(props) {
 				)}
 			</div>
 
-			<DatePicker
-				selected={startDate}
-				onChange={onChange}
-				minDate={new Date()}
-				// {/* check if that would trigger error after visiting later than chosen time*/}
-				startDate={startDate}
-				endDate={endDate}
-				selectsRange
-				inline
-				calendarClassName={calendarClassNames}
-				calendarContainer={CalendarWrap}
-				locale="ru"
-			/>
+			<div className={calendarWrapClasses}>
+				<DatePicker
+					selected={startDate}
+					onChange={onChange}
+					minDate={new Date()}
+					// {/* check if that would trigger error after visiting later than chosen time*/}
+					startDate={startDate}
+					endDate={endDate}
+					selectsRange
+					inline
+					calendarClassName='calendar calendar_styler'
+					calendarContainer={CalendarWrap}
+					locale="ru"
+				/>
+			</div>
 		</div>
 	);
 }

@@ -14,6 +14,7 @@ export class LandingPage extends React.Component {
 						dropdownValueIncrement={this.props.dropdownValueIncrement}
 						dropdownValueDecrement={this.props.dropdownValueDecrement}
 						dropdownClear={this.props.dropdownClear}
+						dropdownApply={this.props.dropdownApply}
 						datepickersData={this.props.datepickersData}
 						datepickerApply={this.props.datepickerApply}
 					/>
