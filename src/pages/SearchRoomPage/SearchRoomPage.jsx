@@ -5,13 +5,17 @@ import {Dropdown} from 'Components/Dropdown/Dropdown.jsx';
 import {CostRangeSlider} from 'Components/CostRangeSlider/CostRangeSlider.jsx';
 import {Checkbox} from 'Components/Checkbox/Checkbox.jsx';
 
-import {RoomSpotlight} from 'Components/RoomSpotlight/RoomSpotlight.jsx'
+import {RoomSpotlightList} from 'Components/RoomSpotlight/RoomSpotlight.jsx'
 
 import './SearchRoomPage.scss';
 
 
 export function SearchRoomPage(props) {
-	
+	const {
+		rateButtonsData, rateButtonApply,
+		rooms,
+		costRangeSlidersData,
+		checkboxesData} = props;
 	return (
 		<div className='search-room-wrap container'>
 			<aside className='search-room__aside'>
@@ -76,10 +80,15 @@ export function SearchRoomPage(props) {
 						key: 'shampoo'}
 					]}/>
 			</aside>
-			<RoomSpotlight
-				rateButtonsData={props.rateButtonsData}
-				rateButtonApply={props.rateButtonApply}/>
+			<div className='search-room__main'>
+				<h1 className='search-room__main-header'>Номера, которые мы для вас подобрали</h1>
+				<RoomSpotlightList
+					rateButtonsData={rateButtonsData}
+					rateButtonApply={rateButtonApply}
+					rooms={rooms}
+					costRangeSliderData={costRangeSlidersData.mainRangeSliderData}
+					checkboxesData={checkboxesData}/>
+			</div>
 		</div>
-
 	)
-}
+};

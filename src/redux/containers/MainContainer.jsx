@@ -1,29 +1,27 @@
 import React, {Component} from 'react';
 
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+
 import {connect} from 'react-redux';
 
 import {dropdownValueIncrement,
 				dropdownValueDecrement,
 				dropdownClear,
-				dropdownApply} from 'actions/dropdownsActions.js'
+				dropdownApply} from 'actions/dropdownsActions.js';
+import {datepickerApply} from 'actions/datePickerActions.js';
+import {costRangeSliderApply} from 'actions/costRangeSliderActions.js';
+import {checkboxToggle} from 'actions/checkboxActions.js';
+import {rateButtonApply} from 'actions/rateButtonActions.js';
 
-import {datepickerApply} from 'actions/datePickerActions.js'
-
-import {costRangeSliderApply} from 'actions/costRangeSliderActions.js'
-
-import {checkboxToggle} from 'actions/checkboxActions.js'
-
-import {rateButtonApply} from 'actions/rateButtonActions.js'
 
 import {Header} from 'Components/Header/Header.jsx'
-import {Footer} from 'Components/Footer/Footer.jsx'
-
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
-
+import {Footer} from 'Components/Footer/Footer.jsx';
 import {RegistrationPage} from 'pages/RegistrationPage/RegistrationPage.jsx'
 import {LoginPage} from 'pages/LoginPage/LoginPage.jsx'
 import {LandingPage} from 'pages/LandingPage/LandingPage.jsx'
-import { SearchRoomPage } from 'pages/SearchRoomPage/SearchRoomPage.jsx';
+import {SearchRoomPage} from 'pages/SearchRoomPage/SearchRoomPage.jsx';
+
+import roomsData from 'src/data/roomsData.js';
 
 function PageNotFound() {
 	return (<div>Page not found</div>)
@@ -71,7 +69,9 @@ class MainContainer extends Component {
 		rateButtonApplyAction(rateButtonId, newRate);
 	}
 
+
 	render() {
+		const rooms = roomsData.entries;
 		const {
 			dropdownsData,
 			datepickersData,
@@ -116,6 +116,8 @@ class MainContainer extends Component {
 
 									rateButtonsData={rateButtonsData}
 									rateButtonApply={this.rateButtonApply}
+
+									rooms={rooms}
 									/>}/>
 
 								<Route path='*'

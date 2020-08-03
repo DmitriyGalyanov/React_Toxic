@@ -8,6 +8,7 @@ export function ImageSlider(props) {
 
 	const {images} = props;
 	const [activeImg, setActiveImg] = useState(1);
+	const [hoveredDot, setHoveredDot] = useState(-1);
 
 	const choosePrevImg = () => {
 		if (activeImg > 0) {
@@ -24,16 +25,34 @@ export function ImageSlider(props) {
 		}
 	};
 
+
 	return (
 		<div className='image-slider-wrap'>
 			<div className='image-slider__controls'>
-				<div className='image-slider__nav-button image-slider__nav-button_prev'
-					onClick={() => choosePrevImg()}>
-					<span/>
+				<div className='image-slider__nav-buttons'>
+					<div className='image-slider__nav-button image-slider__nav-button_prev'
+						onClick={() => choosePrevImg()}>
+						<span/>
+					</div>
+					<div className='image-slider__nav-button image-slider__nav-button_next'
+						onClick={() => chooseNextImg()}>
+						<span/>
+					</div>
 				</div>
-				<div className='image-slider__nav-button image-slider__nav-button_next'
-					onClick={() => chooseNextImg()}>
-					<span/>
+				<div className='image-slider__nav-dots'>
+					{images.map((image, index) => { //different iteration
+						let navDotClasses = classNames(
+							'image-slider__nav-dot',
+							{'image-slider__nav-dot_active': index === activeImg},
+							{'image-slider__nav-dot_hovered': index === hoveredDot}
+						);
+						return ((
+							<div className={navDotClasses} key={index}
+								onClick={() => setActiveImg(index)}
+								onMouseOver={() => setHoveredDot(index)}
+								onMouseLeave={() => setHoveredDot(-1)}/>
+						))
+					})}
 				</div>
 			</div>
 			{images.map((image, index) => {

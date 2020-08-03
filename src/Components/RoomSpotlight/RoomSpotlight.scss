@@ -1,0 +1,73 @@
+@import 'src/colors.scss';
+.room-spotlights-list {
+	display: grid;
+	grid-template-columns: repeat(3, 270px);
+	column-gap: 12px; row-gap: 20px;
+}
+@media (max-width: 1200px) {
+	.room-spotlights-list {
+		grid-template-columns: repeat(2, 270px);
+	}
+}
+@media (max-width: 992px) {
+	.room-spotlights-list {
+		grid-template-columns: 270px;
+	}
+}
+
+
+.room-spotlight {
+	.room-spotlight__desc {
+		margin: 25px 20px 0px 20px;
+		box-sizing: border-box;
+		padding-bottom: 15px;
+		border-bottom: 1px solid transparentize($darkShadeColor, 0.9);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.room-spotlight__desc-header {
+			font-family: 'Quicksand', sans-serif;
+			font-weight: bold;
+			font-size: 14px;
+			color: $darkShadeColor;
+			span {
+				font-family: 'Montserrat', sans-serif;
+				font-weight: bold;
+				font-size: 12px;
+				text-transform: uppercase;
+				color: $primaryColor;
+			}
+		}
+		.room-spotlight__desc-price {
+			font-family: 'Montserrat', sans-serif;
+			color: transparentize($darkShadeColor, 0.5);
+			font-size: 14px;
+			font-weight: bold;
+			span {
+				font-weight: normal;
+				font-size: 10px;
+			}
+		}
+	}
+	.room-spotlight__feedback {
+		padding: 10px 20px 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.room-spotlight__feedback-count {
+			text-decoration: none;
+			font-family: 'Montserrat', sans-serif;
+			color: transparentize($darkShadeColor, 0.5);
+			font-weight: normal;
+			font-size: 10px;
+			span {
+				font-size: 14px;
+				font-weight: bold;
+			}
+			transition: all 0.25s ease;
+			&:hover {
+				color: $primaryColor;
+			}
+		}
+	}
+}

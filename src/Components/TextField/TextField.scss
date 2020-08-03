@@ -3,7 +3,6 @@
 .text-field {
 	font-family: 'Montserrat', sans-serif;
 	width: 100%;
-	// min-width: 260px; //
 	min-width: 250px;
 	height: 44px;
 	background: #FFF;
@@ -64,8 +63,8 @@
 	}
 }
 
-// @media (max-width: 576px) {
-// 	.text-field {
-// 		width: calc(100% - 60px); //forms
-// 	}
-// }
+@media (max-width: 576px) {
+	.text-field {
+		width: calc(100% - 60px); //forms
+	}
+}

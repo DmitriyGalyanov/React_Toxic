@@ -3,18 +3,16 @@ import {CHECKBOX_TOGGLE} from 'actions/checkboxActions.js';
 const initialState = {
 	entries: {
 		smoking: false,
-		pets: true,
-		invitations: true,
+		pets: false,
+		invitations: false,
 		wideCorridors: false,
 		disabledAssistance: false,
-		breakfast: true,
-		desk: true,
+		breakfast: false,
+		desk: false,
 		feedingChair: false,
 		crib: false,
 		tv: false,
-		shampoo: true,
-		loading: false,
-		error: false
+		shampoo: false,
 	}
 }
 

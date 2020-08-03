@@ -6,10 +6,13 @@
 	width: 100%;
 }
 @media (max-width: 576px) {
-	.date-dropdown-wrap {
+	.date-dropdowns-wrap {
 		flex-direction: column;
 		.date-dropdown {
 			width: 100%;
+			.date-dropdown__select {
+				width: 100%;
+			}
 		}
 	}
 }
@@ -26,13 +29,13 @@
 	cursor: pointer;
 	position: relative;
 	padding: 16px 44px 16px 15px;
-	// width: 150px;
 	width: fit-content;
 	box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
 	background: #fff;
 	border: 1px solid rgba(31, 32, 65, 0.25);
 	border-radius: 4px;
+	white-space: nowrap;
 	&:focus {
 		outline: none;
 	}
@@ -49,12 +52,10 @@
 		border-right: 2px solid transparentize($darkShadeColor, 0.5);
 		border-bottom: 2px solid transparentize($darkShadeColor, 0.5);
 		transform: rotate(45deg);
-		// margin-top: 13px;
 		top: 16px;
 	}
 	&_active::after {
 		transform: rotate(-135deg);
-		// margin-top: 19px;
 		top: 18px;
 	}
 }

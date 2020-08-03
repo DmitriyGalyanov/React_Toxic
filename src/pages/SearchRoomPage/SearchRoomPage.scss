@@ -4,6 +4,12 @@
 	padding: 30px 0 70px 0;
 	display: flex;
 }
+@media (max-width: 576px) {
+	.search-room-wrap {
+		align-items: center;
+		flex-direction: column;
+	}
+}
 .search-room__aside {
 	width: 276px;
 	.date-picker-wrap {
@@ -23,54 +29,54 @@
 	}
 }
 
-// .search-room__main {
-// 	display: flex; flex-direction: column;
-// 	margin-left: 60px;
-// 	.search-room__main-header {
-// 		margin: 0 0 21px 0;
-// 		font-family: 'Quicksand', sans-serif; color: $darkShadeColor;
-// 		line-height: 30px;
-// 		font-weight: bold; font-size: 24px;
-// 	}
-// 	.pagination-wrap {
-// 		margin-top: 60px;
-// 		align-self: center;
-// 	}
-// }
+.search-room__main {
+	display: flex; flex-direction: column;
+	margin-left: 60px;
+	.search-room__main-header {
+		margin: 0 0 21px 0;
+		font-family: 'Quicksand', sans-serif; color: $darkShadeColor;
+		line-height: 30px;
+		font-weight: bold; font-size: 24px;
+	}
+	.pagination-wrap {
+		margin-top: 60px;
+		align-self: center;
+	}
+}
 
-// @media (max-width: 992px) {
-// 	.search-room__main {
-// 		.pagination-wrap {
-// 			width: 270px; // room spotlight width
-// 			margin-top: 40px;
-// 			align-self: initial;
-// 			display: flex; flex-direction: column;
-// 			align-items: center;
-// 		}
-// 	}
-// }
+@media (max-width: 992px) {
+	.search-room__main {
+		.pagination-wrap {
+			width: 270px; // room spotlight width
+			margin-top: 40px;
+			align-self: initial;
+			display: flex; flex-direction: column;
+			align-items: center;
+		}
+	}
+}
 
-// @media (max-width: 768px) {
-// 	.search-room__main {
-// 		margin-left: 15px;
-// 		.pagination-wrap {
-// 			margin-top: 30px;
-// 		}
-// 	}
-// }
-// @media (max-width: 576px) {
-// 	.main {
-// 		flex-direction: column;
-// 		align-items: center;
-// 	}
-// 	.search-room__main {
-// 		margin-left: 0;
-// 		.search-room__main-header {
-// 			font-size: 17px; line-height: 24px;
-// 			margin: 0; max-width: 270px;
-// 		}
-// 		.pagination-wrap {
-// 			margin-top: 20px;
-// 		}
-// 	}
-// }
+@media (max-width: 768px) {
+	.search-room__main {
+		margin-left: 15px;
+		.pagination-wrap {
+			margin-top: 30px;
+		}
+	}
+}
+@media (max-width: 576px) {
+	.main {
+		flex-direction: column;
+		align-items: center;
+	}
+	.search-room__main {
+		margin-left: 0;
+		.search-room__main-header {
+			font-size: 17px; line-height: 24px;
+			margin: 0; max-width: 270px;
+		}
+		.pagination-wrap {
+			margin-top: 20px;
+		}
+	}
+}

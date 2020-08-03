@@ -19,3 +19,9 @@
 	font-size: 14px;
 	color: transparentize($darkShadeColor, 0.25);
 }
+
+@media (max-width: 576px) {
+	.landing-page__banner {
+		align-items: center;
+	}
+}
