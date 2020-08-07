@@ -33,6 +33,12 @@ const roomsData = {entries: [ // Object.map
 				}
 			],
 			rate: 5,
+			votes: {
+				great: 200,
+				good: 85,
+				passably: 30,
+				bad: 5
+			}
 		},
 		images: [
 			{
@@ -51,6 +57,23 @@ const roomsData = {entries: [ // Object.map
 				src: `${imgSrcStart}/roomSpotlight450_1.jpg`,
 				name: 'room 888 fourth picture'
 			},
+		],
+		comfortAttributes: [
+			{
+				name: 'comfort',
+				ruName: 'Комфорт',
+				desc: 'Шумопоглощающие стены'
+			},
+			{
+				name: 'convenience',
+				ruName: 'Удобство',
+				desc: 'Окно в каждой из спален'
+			},
+			{
+				name: 'cosiness',
+				ruName: 'Уют',
+				desc: 'Номер оснащён камином'
+			}
 		]
 	},
 	{
@@ -78,6 +101,12 @@ const roomsData = {entries: [ // Object.map
 				},
 			],
 			rate: 4,
+			votes: {
+				great: 90,
+				good: 40,
+				passably: 35,
+				bad: 10
+			}
 		},
 		images: [
 			{
@@ -95,6 +124,18 @@ const roomsData = {entries: [ // Object.map
 			{
 				src: `${imgSrcStart}/roomSpotlight888_1.jpg`,
 				name: 'room 840 fourth picture'
+			},
+		],
+		comfortAttributes: [
+			{
+				name: 'comfort',
+				ruName: 'Комфорт',
+				desc: 'Шумопоглощающие стены'
+			},
+			{
+				name: 'convenience',
+				ruName: 'Удобство',
+				desc: 'Окно в каждой из спален'
 			},
 		]
 	},
@@ -131,6 +172,12 @@ const roomsData = {entries: [ // Object.map
 				}
 			],
 			rate: 3,
+			votes: {
+				great: 40,
+				good: 40,
+				passably: 45,
+				bad: 20
+			}
 		},
 		images: [
 			{
@@ -149,6 +196,23 @@ const roomsData = {entries: [ // Object.map
 				src: `${imgSrcStart}/roomSpotlight450_1.jpg`,
 				name: 'room 980 fourth picture'
 			},
+		],
+		comfortAttributes: [
+			{
+				name: 'comfort',
+				ruName: 'Комфорт',
+				desc: 'Шумопоглощающие стены'
+			},
+			{
+				name: 'convenience',
+				ruName: 'Удобство',
+				desc: 'Окно в каждой из спален'
+			},
+			{
+				name: 'cosiness',
+				ruName: 'Уют',
+				desc: 'Номер оснащён камином'
+			}
 		]
 	},
 	{
@@ -180,6 +244,12 @@ const roomsData = {entries: [ // Object.map
 				}
 			],
 			rate: 5,
+			votes: {
+				great: 200,
+				good: 85,
+				passably: 30,
+				bad: 5
+			}
 		},
 		images: [
 			{
@@ -197,6 +267,18 @@ const roomsData = {entries: [ // Object.map
 			{
 				src: `${imgSrcStart}/roomSpotlight678_1.jpg`,
 				name: 'room 856 fourth picture'
+			},
+		],
+		comfortAttributes: [
+			{
+				name: 'comfort',
+				ruName: 'Комфорт',
+				desc: 'Шумопоглощающие стены'
+			},
+			{
+				name: 'convenience',
+				ruName: 'Удобство',
+				desc: 'Окно в каждой из спален'
 			},
 		]
 	},
@@ -220,6 +302,12 @@ const roomsData = {entries: [ // Object.map
 		feedback: {
 			reviews: [],
 			rate: 4,
+			votes: {
+				great: 90,
+				good: 40,
+				passably: 35,
+				bad: 10
+			}
 		},
 		images: [
 			{
@@ -237,6 +325,18 @@ const roomsData = {entries: [ // Object.map
 			{
 				src: `${imgSrcStart}/roomSpotlight888_1.jpg`,
 				name: 'room 740 fourth picture'
+			},
+		],
+		comfortAttributes: [
+			{
+				name: 'comfort',
+				ruName: 'Комфорт',
+				desc: 'Шумопоглощающие стены'
+			},
+			{
+				name: 'convenience',
+				ruName: 'Удобство',
+				desc: 'Окно в каждой из спален'
 			},
 		]
 	},
@@ -273,6 +373,12 @@ const roomsData = {entries: [ // Object.map
 				}
 			],
 			rate: 3,
+			votes: {
+				great: 40,
+				good: 40,
+				passably: 45,
+				bad: 20
+			}
 		},
 		images: [
 			{
@@ -290,6 +396,18 @@ const roomsData = {entries: [ // Object.map
 			{
 				src: `${imgSrcStart}/roomSpotlight450_1.jpg`,
 				name: 'room 982 fourth picture'
+			},
+		],
+		comfortAttributes: [
+			{
+				name: 'comfort',
+				ruName: 'Комфорт',
+				desc: 'Шумопоглощающие стены'
+			},
+			{
+				name: 'convenience',
+				ruName: 'Удобство',
+				desc: 'Окно в каждой из спален'
 			},
 		]
 	},
@@ -322,6 +440,12 @@ const roomsData = {entries: [ // Object.map
 				}
 			],
 			rate: 5,
+			votes: {
+				great: 200,
+				good: 85,
+				passably: 30,
+				bad: 5
+			}
 		},
 		images: [
 			{
@@ -339,6 +463,18 @@ const roomsData = {entries: [ // Object.map
 			{
 				src: `${imgSrcStart}/roomSpotlight450_1.jpg`,
 				name: 'room 678 fourth picture'
+			},
+		],
+		comfortAttributes: [
+			{
+				name: 'comfort',
+				ruName: 'Комфорт',
+				desc: 'Шумопоглощающие стены'
+			},
+			{
+				name: 'convenience',
+				ruName: 'Удобство',
+				desc: 'Окно в каждой из спален'
 			},
 		]
 	},
@@ -367,6 +503,12 @@ const roomsData = {entries: [ // Object.map
 				},
 			],
 			rate: 4,
+			votes: {
+				great: 90,
+				good: 40,
+				passably: 35,
+				bad: 10
+			}
 		},
 		images: [
 			{
@@ -384,6 +526,18 @@ const roomsData = {entries: [ // Object.map
 			{
 				src: `${imgSrcStart}/roomSpotlight888_1.jpg`,
 				name: 'room 450 fourth picture'
+			},
+		],
+		comfortAttributes: [
+			{
+				name: 'comfort',
+				ruName: 'Комфорт',
+				desc: 'Шумопоглощающие стены'
+			},
+			{
+				name: 'convenience',
+				ruName: 'Удобство',
+				desc: 'Окно в каждой из спален'
 			},
 		]
 	},
@@ -420,6 +574,12 @@ const roomsData = {entries: [ // Object.map
 				}
 			],
 			rate: 3,
+			votes: {
+				great: 40,
+				good: 40,
+				passably: 45,
+				bad: 20
+			}
 		},
 		images: [
 			{
@@ -438,6 +598,23 @@ const roomsData = {entries: [ // Object.map
 				src: `${imgSrcStart}/roomSpotlight450_1.jpg`,
 				name: 'room 350 fourth picture'
 			},
+		],
+		comfortAttributes: [
+			{
+				name: 'comfort',
+				ruName: 'Комфорт',
+				desc: 'Шумопоглощающие стены'
+			},
+			{
+				name: 'convenience',
+				ruName: 'Удобство',
+				desc: 'Окно в каждой из спален'
+			},
+			{
+				name: 'cosiness',
+				ruName: 'Уют',
+				desc: 'Номер оснащён камином'
+			}
 		]
 	},
 ]}

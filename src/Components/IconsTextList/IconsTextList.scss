@@ -1,0 +1,28 @@
+@import 'src/colors.scss';
+
+.icons-text-list-wrap {
+	max-width: 280px;
+	.icons-text-list__header {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 19px; line-height: 24px;
+	color: $darkShadeColor;
+	}
+	.icons-text-list__item {
+		display: flex;
+		padding: 24px 0 24px 4px;
+		&:not(:last-child) {
+			border-bottom: 1px solid transparentize($darkShadeColor, 0.9);
+		}
+		.icons-text-list__text-wrap {
+			margin-left: 16px;
+			display: flex;
+			flex-direction: column; justify-content: center;
+			line-height: 14px;
+			.icons-text-list__item-header {
+				font-weight: bold;
+				color: transparentize($darkShadeColor, 0.25);
+				margin-bottom: 12px;
+			}
+		}
+	}
+}

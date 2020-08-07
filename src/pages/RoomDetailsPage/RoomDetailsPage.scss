@@ -1,0 +1,141 @@
+.room-details__banner {
+	display: none!important; /////////
+	width: 1440px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 981px 461px;
+	grid-template-rows: 243px 243px;
+	grid-template-areas: "pic1 pic2"
+											 "pic1 pic3";
+	img:nth-child(1) {
+		grid-area: pic1;
+	}
+	img:nth-child(2) {
+		grid-area: pic2;
+	}
+	img:nth-child(3) {
+		grid-area: pic3;
+	}
+}
+@media (max-width: 1440px) {
+	.room-details__banner {
+		width: auto;
+		margin-left: auto; margin-right: auto;
+		display: flex; justify-content: center;
+		img:nth-child(1) {
+			width: 1160px;
+		}
+		img:nth-child(2) {
+			display: none;
+		}
+		img:nth-child(3) {
+			display: none;
+		}
+	}
+}
+@media (max-width: 1200px) {
+	.room-details__banner {
+		img:nth-child(1) {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+.room-details__main {
+	display: grid;
+	grid-template-columns: 280px 360px 380px;
+	column-gap: 75px;
+	grid-template-rows: minmax(275px, auto) minmax(215px, auto) minmax(160px, auto); //no minmax() first-row fits perfectly
+	row-gap: 30px;
+	grid-template-areas: "iconsList feedbackWheel roomSelection"
+											 "reviews reviews roomSelection"
+											 "rules cancellationInfo .";
+}
+.icons-text-list-wrap {
+	grid-area: iconsList;
+}
+.room-feedback-wheel {
+	grid-area: feedbackWheel;
+}
+.room-selection {
+	grid-area: roomSelection;
+}
+.reviews-wrap {
+	grid-area: reviews;
+}
+.bullet-list-wrap {
+	grid-area: rules;
+}
+.cancellation-info {
+	grid-area: cancellationInfo;
+}
+
+@media (max-width: 1200px) {
+	main {
+		.main {
+			width: fit-content;
+			grid-template-columns: 250px 300px 370px;
+			column-gap: 25px;
+			grid-template-rows: 275px minmax(110px, auto) minmax(110px, auto) minmax(160px, auto); // minmax() на первую строку?
+			grid-template-rows: auto;
+			grid-template-areas: "iconsList feedbackWheel roomSelection"
+													 "reviews reviews roomSelection"
+													 "reviews reviews ."
+													 "rules cancellationInfo .";
+		}
+	}
+}
+@media (max-width: 992px) {
+	main {
+		margin: 40px 0;
+		.main {
+			grid-template-columns: 280px 360px;
+			grid-template-rows: auto;
+			grid-template-areas: "iconsList feedbackWheel"
+													 "reviews reviews"
+													 "rules cancellationInfo"
+													 "roomSelection roomSelection"
+													 "roomSelection roomSelection";
+		}
+	}
+}
+@media (max-width: 992px) and (min-width: 769px) {
+	.room-feedback-wheel {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		.room-feedback-wheel__header {
+			width: 281px;
+		}
+	}
+}
+@media (max-width: 768px) {
+	main {
+		margin: 20px 0;
+		.main {
+			grid-template-columns: 265px 230px minmax(50px, auto);
+			column-gap: 10px;
+			grid-template-areas: "iconsList feedbackWheel feedbackWheel"
+													 "reviews reviews ."
+													 "rules cancellationInfo ."
+													 "roomSelection roomSelection ."
+													 "roomSelection roomSelection .";
+		}
+	}
+}
+@media (max-width: 576px) {
+	main {
+		margin: 5px 0;
+		.main {
+			grid-template-columns: minmax(300px, 566px);
+			grid-template-areas: "iconsList"
+													 "feedbackWheel"
+													 "reviews"
+													 "rules"
+													 "cancellationInfo"
+													 "roomSelection"
+													 "roomSelection";
+		}
+	}
+}

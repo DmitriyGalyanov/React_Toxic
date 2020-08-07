@@ -19,7 +19,8 @@ import {Footer} from 'Components/Footer/Footer.jsx';
 import {RegistrationPage} from 'pages/RegistrationPage/RegistrationPage.jsx'
 import {LoginPage} from 'pages/LoginPage/LoginPage.jsx'
 import {LandingPage} from 'pages/LandingPage/LandingPage.jsx'
-import {SearchRoomPage} from 'pages/SearchRoomPage/SearchRoomPage.jsx';
+import {SearchRoomPage} from 'pages/SearchRoomPage/SearchRoomPage.jsx'
+import {RoomDetailsPage} from 'pages/RoomDetailsPage/RoomDetailsPage.jsx';
 
 import roomsData from 'src/data/roomsData.js';
 
@@ -119,7 +120,20 @@ class MainContainer extends Component {
 
 									rooms={rooms}
 									/>}/>
+								<Route exact path='/roomDetails/:roomId([0-9]+)'
+									render={(props) => <RoomDetailsPage
+										{...props}
+										rooms={rooms}
+										dropdownsData={dropdownsData}
+										dropdownValueIncrement={this.dropdownValueIncrement}
+										dropdownValueDecrement={this.dropdownValueDecrement}
+										dropdownClear={this.dropdownClear}
+										dropdownApply={this.dropdownApply}
+										datepickersData={datepickersData}
+										datepickerApply={this.datepickerApply}
+									/>}/>
 
+								
 								<Route path='*'
 									component={PageNotFound}/>
 							</Switch>

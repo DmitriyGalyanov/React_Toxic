@@ -1,0 +1,76 @@
+@import 'src/colors.scss';
+
+.room-booking {
+	font-family: 'Quicksand', sans-serif;
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	max-width: 380px;
+	padding: 40px 30px 30px; box-sizing: border-box;
+	background-color: #fff; box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	.room-booking__header {
+		margin: 0 0 20px 0;
+		font-weight: bold; font-size: 24px;
+		color: $darkShadeColor;
+		display: flex; justify-content: space-between;
+		&-left {
+		font-size: 18px;
+			span {
+				font-family: 'Montserrat', sans-serif;
+				font-size: 12px;
+				text-transform: uppercase;
+				color: $primaryColor;
+			}
+		}
+		&-right {
+			font-family: 'Montserrat', sans-serif;
+			color: transparentize($darkShadeColor, 0.5);
+			font-size: 14px;
+			font-weight: bold;
+			span {
+				font-weight: normal;
+				font-size: 11px;
+			}
+		}
+	}
+	.date-dropdowns-wrap {
+		margin-bottom: 20px;
+	}
+	.dropdown {
+		margin-bottom: 30px;
+	}
+
+	.cost-modifiers-list {
+		.cost-modifier__item {
+			display: flex; justify-content: space-between;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 14px;
+			color: transparentize($darkShadeColor, 0.25);
+			&:not(:last-child) {
+				margin-bottom: 16px;
+			}
+		}
+	}
+	.room-booking__total-cost {
+		display: flex; justify-content: space-between;
+		font-family: 'Quicksand', sans-serif;
+		font-size: 19px;
+		color: $darkShadeColor;
+		margin: 30px 0 20px;
+	}
+}
+
+
+
+
+
+
+@media (max-width: 576px) {
+	.room-booking {
+		.room-booking__header {
+			font-size: 20px;
+			margin-bottom: 14px;
+		}
+	}
+}

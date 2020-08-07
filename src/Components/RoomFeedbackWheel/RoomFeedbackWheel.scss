@@ -1,0 +1,138 @@
+@import 'src/colors.scss';
+
+.room-feedback-wheel {
+	.room-feedback-wheel__header {
+		font-family: 'Quicksand', sans-serif;
+		font-size: 19px; line-height: 24px;
+		color: $darkShadeColor; font-weight: bold;
+		margin: 0 0 20px 0;
+	}
+	.room-feedback-wheel__content {
+		display: flex;
+		.room-feedback-wheel__wheel {
+			display: flex; flex-direction: column;
+			justify-content: center;
+			width: 120px; height: 120px;
+			text-align: center; line-height: 30px;
+			font-weight: bold; color: $primaryColor;
+			font-size: 24px;
+			span {
+				display: block;
+				font-family: 'Quicksand', sans-serif;
+				font-size: 24px;
+				line-height: 30px;
+				font-weight: bold;
+			&:last-child {
+				font-family: 'Montserrat', sans-serif;
+				font-size: 12px;
+				line-height: 15px;
+				font-weight: bold;
+			}
+			}
+			box-sizing: border-box;
+			border-radius: 50%;
+			position: relative;
+			.wheel {
+				right: -17px;
+			}
+		}
+		.room-feedback-wheel__legend {
+			margin: 0 0 0 45px; padding: 0;
+			align-self: flex-end;
+			display: flex; flex-direction: column;
+			.room-feedback-wheel__legend-item {
+				font-size: 14px; color: transparentize($darkShadeColor, 0.25);
+				line-height: 24px;
+				position: relative;
+				list-style-type: none;
+				&:before {
+					position: absolute;
+					content: ''; display: block;
+					width: 10px; height: 10px;
+					border-radius: 50%;
+					background-color: #000;
+					left: -15px; top: calc(50% - 5px);
+				}
+				&.room-feedback-wheel__legend-item_great:before {
+					background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
+				}
+				&.room-feedback-wheel__legend-item_good:before {
+					background: linear-gradient(180deg, $secondaryColor 0%, #66D2EA 100%);
+				}
+				&.room-feedback-wheel__legend-item_passably:before {
+					background: linear-gradient(180deg, $primaryColor 0%, #8BA4F9 100%);
+				}
+				&.room-feedback-wheel__legend-item_bad:before {
+					background: linear-gradient(180deg, #919191 0%, #3D4975 100%);
+				}
+				span {
+					visibility: hidden;
+				}
+				&:hover {
+					color: $darkShadeColor;
+					span {
+						visibility: visible;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.wheel {
+	width: 156px; height: 153px;
+	position: absolute;
+	circle {
+		transition: 1s all ease;
+		cx: 21; cy: 21; r: 15.91549430918954;
+		stroke-width: 1.2px;
+		fill: transparent;
+	}
+	.wheel-ring {
+		stroke: #fff;
+	}
+	.wheel-segment_good {
+		stroke: $secondaryColor;
+		// stroke-dasharray: 25 75;
+		// Первое (25) = процент good отзывов
+		// Второе (75) = 100 - Первое (25)
+		stroke-dashoffset: 0;
+		// Отрицательная сумма процентов верхних сегментов (этот(good) самый верхний, поэтому 0)
+	} 
+	.wheel-segment_great {
+		// stroke: #FFDD9C;
+		stroke: url(#segmentGradient_good);
+		// stroke-dasharray: 50 50;
+		// Первое (50) = процент great отзывов
+		// Второе (50) = 100 - первое (50)
+		// stroke-dashoffset: -25;
+		// Отрицательная сумма процентов верхних сегментов -(good(25) = 25)
+	}
+	.wheel-segment_passably {
+		stroke: darken($primaryColor, 0.1);
+		// stroke-dasharray: 25 75;
+		// Первое (25) = процент passably отзывов
+		// Второе (75) = 100 - первое (25)
+		// stroke-dashoffset: -75;
+		// Отрицательная сумма процентов верхних сегментов -(good(25) + great(50) = 75)
+	}
+	.wheel-segment_bad {
+		stroke: #565F7D;
+		// stroke-dasharray: 0 100;
+		// Первое (0) = процент bad отзывов
+		// Второе (100) = 100 - первое (0)
+		// stroke-dashoffset: -100;
+		// Отрицательная сумма процентов верхних сегментов -(good(25) + great(50) + passably(25) = 100)
+	}
+	.wheel-segment_divider {
+		stroke: #fff;
+		// stroke-dasharray: 1 24 1 49 1 24 1 0;
+		// Нечётные -- делители, 1 это просто размер делителя
+		// Чётные -- (размер сегмента - размер делителя; по порядку)
+		// stroke-dashoffset: 0.5; // половина размера делителя
+	}
+}
+.segment-gradient {
+	width: 0; height: 0;
+}
