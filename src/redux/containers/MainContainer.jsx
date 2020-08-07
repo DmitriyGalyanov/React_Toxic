@@ -22,7 +22,8 @@ import {LandingPage} from 'pages/LandingPage/LandingPage.jsx'
 import {SearchRoomPage} from 'pages/SearchRoomPage/SearchRoomPage.jsx'
 import {RoomDetailsPage} from 'pages/RoomDetailsPage/RoomDetailsPage.jsx';
 
-import roomsData from 'src/data/roomsData.js';
+import roomsData from 'src/data/roomsData.js'
+import usersData from 'src/data/usersData.js';
 
 function PageNotFound() {
 	return (<div>Page not found</div>)
@@ -65,14 +66,14 @@ class MainContainer extends Component {
 	}
 
 	rateButtonApply = (rateButtonId, newRate) => {
-		console.log(rateButtonId, newRate)
 		const {rateButtonApplyAction} = this.props;
 		rateButtonApplyAction(rateButtonId, newRate);
 	}
 
 
 	render() {
-		const rooms = roomsData.entries;
+		const rooms = roomsData.entries,
+			users = usersData.entries;
 		const {
 			dropdownsData,
 			datepickersData,
@@ -119,11 +120,13 @@ class MainContainer extends Component {
 									rateButtonApply={this.rateButtonApply}
 
 									rooms={rooms}
+									users={users}
 									/>}/>
 								<Route exact path='/roomDetails/:roomId([0-9]+)'
 									render={(props) => <RoomDetailsPage
 										{...props}
 										rooms={rooms}
+										users={users}
 										dropdownsData={dropdownsData}
 										dropdownValueIncrement={this.dropdownValueIncrement}
 										dropdownValueDecrement={this.dropdownValueDecrement}

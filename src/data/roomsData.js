@@ -25,11 +25,15 @@ const roomsData = {entries: [ // Object.map
 			reviews: [
 				{
 					senderId: 11, //info about sender will be found via id
-					text: `test review text from 11`
+					text: `Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто из соседей не жаловался.`,
+					likes: 10,
+					date: '06.08.2020'
 				},
 				{
 					senderId: 7,
-					text: `test review text from 11`
+					text: `Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент`,
+					likes: 6,
+					date: '07.08.2020'
 				}
 			],
 			rate: 5,
@@ -96,8 +100,10 @@ const roomsData = {entries: [ // Object.map
 		feedback: {
 			reviews: [
 				{
-					senderId: 4,
-					text: `test review text from 4`
+					senderId: 7,
+					text: `test review text from 7`,
+					likes: 11,
+					date: '02.08.2020'
 				},
 			],
 			rate: 4,
@@ -160,16 +166,16 @@ const roomsData = {entries: [ // Object.map
 			reviews: [
 				{
 					senderId: 11, //info about sender will be found via id
-					text: `test review text from 11`
+					text: `Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто из соседей не жаловался.`,
+					likes: 4,
+					date: '03.08.2020'
 				},
 				{
 					senderId: 7,
-					text: `test review text from 11`
+					text: `Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент`,
+					likes: 17,
+					date: '05.08.2020'
 				},
-				{
-					senderId: 9,
-					text: `test review text from 9`
-				}
 			],
 			rate: 3,
 			votes: {
@@ -236,11 +242,15 @@ const roomsData = {entries: [ // Object.map
 			reviews: [
 				{
 					senderId: 11, //info about sender will be found via id
-					text: `test review text from 11`
+					text: `Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто из соседей не жаловался.`,
+					likes: 7,
+					date: '08.08.2020'
 				},
 				{
 					senderId: 7,
-					text: `test review text from 11`
+					text: `Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент`,
+					likes: 19,
+					date: '24.07.2020'
 				}
 			],
 			rate: 5,
@@ -361,16 +371,16 @@ const roomsData = {entries: [ // Object.map
 			reviews: [
 				{
 					senderId: 11, //info about sender will be found via id
-					text: `test review text from 11`
+					text: `Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто из соседей не жаловался.`,
+					likes: 7,
+					date: '06.08.2020'
 				},
 				{
 					senderId: 7,
-					text: `test review text from 11`
+					text: `Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент`,
+					likes: 23,
+					date: '05.08.2020'
 				},
-				{
-					senderId: 9,
-					text: `test review text from 9`
-				}
 			],
 			rate: 3,
 			votes: {
@@ -432,11 +442,15 @@ const roomsData = {entries: [ // Object.map
 			reviews: [
 				{
 					senderId: 11, //info about sender will be found via id
-					text: `test review text from 11`
+					text: `Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто из соседей не жаловался.`,
+					likes: 6,
+					date: '06.08.2020'
 				},
 				{
 					senderId: 7,
-					text: `test review text from 11`
+					text: `Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент`,
+					likes: 9,
+					date: '04.08.2020'
 				}
 			],
 			rate: 5,
@@ -498,8 +512,10 @@ const roomsData = {entries: [ // Object.map
 		feedback: {
 			reviews: [
 				{
-					senderId: 4,
-					text: `test review text from 4`
+					senderId: 7,
+					text: `test review text from 7`,
+					likes: 7,
+					date: '06.08.2020'
 				},
 			],
 			rate: 4,
@@ -562,16 +578,16 @@ const roomsData = {entries: [ // Object.map
 			reviews: [
 				{
 					senderId: 11, //info about sender will be found via id
-					text: `test review text from 11`
+					text: `Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто из соседей не жаловался.`,
+					likes: 24,
+					date: '02.08.2020'
 				},
 				{
 					senderId: 7,
-					text: `test review text from 11`
+					text: `Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент`,
+					likes: 17,
+					date: '08.08.2020'
 				},
-				{
-					senderId: 9,
-					text: `test review text from 9`
-				}
 			],
 			rate: 3,
 			votes: {

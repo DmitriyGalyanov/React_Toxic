@@ -1,0 +1,59 @@
+@import 'src/colors.scss';
+
+.like-button {
+	transition: 1s;
+	cursor: pointer;
+	min-width: 40px; line-height: 20px; height: 20px;
+	padding-left: 20px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	font-size: 10px; font-family: "Montserrat", sans-serif;
+	color: transparentize($darkShadeColor, 0.75);
+	background: url('./like-button-heart.svg') no-repeat 5px 6px,
+						white;
+	position: relative;
+	&:before {
+		transition: inherit;
+		content: '';
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: -1000;
+		margin: -1px;
+		border-radius: inherit;
+		background: transparentize($darkShadeColor, 0.75);
+	}
+	&:after {
+		transition: inherit;
+		opacity: 0;
+		content: '';
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: -999;
+		margin: -1px;
+		border-radius: inherit;
+		background: linear-gradient(180deg, $primaryColor 0%, #8BA4F9 100%);
+	}
+	img {
+		transition: inherit;
+		position: absolute;
+		left: 5px;
+		top: -30px;
+		opacity: 0;
+	}
+	&:hover {
+		color: transparentize($primaryColor, 0.25);
+		&:after {
+			opacity: 0.6;
+		}
+	}
+	&_active {
+		color: $primaryColor;
+		&:after {
+			opacity: 1!important;
+		}
+		img {
+			opacity: 1;
+			top: 6px;
+		}
+	}
+}

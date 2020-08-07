@@ -1,0 +1,32 @@
+@import 'src/colors.scss';
+
+.bullet-list-wrap {
+	font-family: "Montserrat", sans-serif;
+	width: 260px;
+	.bullet-list__header {
+		font-weight: bold; font-size: 19px;
+		color: $darkShadeColor;
+		line-height: 24px; word-wrap: break-word;
+		margin: 0 0 20px 20px;
+	}
+	.bullet-list__list {
+		padding: 0; margin: 0;
+		.bullet-list__item {
+			list-style-type: none;
+			font-size: 14px; line-height: 24px;
+			color: transparentize($darkShadeColor, 0.25);
+			position: relative; padding-left: 20px;
+			&::before {
+				content: '';
+				display: inline-block; position: absolute;
+				top: 6px; left: 0;
+				width: 10px; height: 10px;
+				border-radius: 50%;
+				background: transparentize($darkShadeColor, 0.75);
+			}
+			&:not(:first-child) {
+				margin-top: 15px;
+			}
+		}
+	}
+}

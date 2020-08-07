@@ -1,0 +1,40 @@
+@import 'src/colors.scss';
+
+.reviews-list-wrap {
+	.reviews-list__header {
+		span {
+			visibility: hidden;
+		}
+		&:hover {
+			span {
+				visibility: visible;
+			}
+		}
+	}
+	.reviews-list__list {
+		margin-top: 16px;
+		.reviews-list__item {
+			display: flex;
+			&:not(:first-child) {
+				margin-top: 20px;
+			}
+			.review-aside {
+				.review__sender-pic {
+					margin-bottom: 4px;
+				}
+			}
+			.review-text-wrap {
+				font-family: 'Montserrat', sans-serif;
+				font-size: 14px;
+				color: $darkShadeColor;
+				margin-left: 14px;
+				.review__sender-name {
+					font-weight: bold;
+				}
+				.review__date {
+					margin-top: 6px; margin-bottom: 12px;
+				}
+			}
+		}
+	}
+}
