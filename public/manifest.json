@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React_Toxic",
+  "name": "React Toxic SPA",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {IconsTextList} from 'Components/IconsTextList/IconsTextList.jsx'
 import {FeedbackWheel} from 'Components/FeedbackWheel/FeedbackWheel.jsx'
@@ -11,13 +11,12 @@ import bannerPic2 from 'images/roomDetailsBanner/bannerPic2.jpg'
 import bannerPic3 from 'images/roomDetailsBanner/bannerPic3.jpg';
 
 import './RoomDetailsPage.scss';
-import { useEffect } from 'react';
-
 
 
 export function RoomDetailsPage(props) {
-
 	useEffect(() => {
+		document.title = 'Room Details';
+
 		const displayedElement = props.location.hash ?
 			document.querySelector(props.location.hash) :
 			null;

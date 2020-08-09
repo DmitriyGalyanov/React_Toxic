@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {DatePickers} from 'Components/DatePicker/DatePicker.jsx';
 import {Dropdown} from 'Components/Dropdown/Dropdown.jsx';
@@ -11,6 +11,10 @@ import './SearchRoomPage.scss';
 
 
 export function SearchRoomPage(props) {
+	useEffect(() => {
+		document.title = 'Room Search';
+	}, [])
+
 	const {
 		rateButtonsData, rateButtonApply,
 		rooms,

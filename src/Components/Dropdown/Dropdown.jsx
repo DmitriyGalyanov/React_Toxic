@@ -6,15 +6,15 @@ import './Dropdown.scss';
 
 
 class DropdownOption extends Component {
-	handleDecrement = (event) => {
-		const dropdownOptionId = event.target.parentNode.parentNode.id
-		const dropdownId = event.target.parentNode.parentNode.parentNode.parentNode.id
-		this.props.dropdownValueDecrement(dropdownOptionId, dropdownId)
+	handleDecrement = () => {
+		const dropdownOptionId = this.props.option.id;
+		const dropdownId = this.props.parentDropdownId;
+		this.props.dropdownValueDecrement(dropdownOptionId, dropdownId);
 	}
-	handleIncrement = (event) => {
-		const dropdownOptionId = event.target.parentNode.parentNode.id
-		const dropdownId = event.target.parentNode.parentNode.parentNode.parentNode.id
-		this.props.dropdownValueIncrement(dropdownOptionId, dropdownId)
+	handleIncrement = () => {
+		const dropdownOptionId = this.props.option.id;
+		const dropdownId = this.props.parentDropdownId;
+		this.props.dropdownValueIncrement(dropdownOptionId, dropdownId);
 	}
 
 	render() {
@@ -22,7 +22,7 @@ class DropdownOption extends Component {
 		const dropdownValue = dropdownData.values[option.id];
 		const optionName = dropdownData.names[option.id];
 		return (
-			<div className="dropdown__option" id={option.id} value={dropdownValue}>{optionName}
+			<div className="dropdown__option" value={dropdownValue}>{optionName}
 				<div className="dropdown__buttons">
 					<button type="button"
 					disabled={dropdownValue <= option.minValue}
@@ -124,6 +124,7 @@ export class Dropdown extends Component {
 					{options.map((option, index) => {
 						return (
 							<DropdownOption key={index} option={option}
+								parentDropdownId={id}
 								dropdownData={this.props.dropdownsData[id + 'DropdownData']}
 								dropdownValueIncrement={this.props.dropdownValueIncrement}
 								dropdownValueDecrement={this.props.dropdownValueDecrement}
