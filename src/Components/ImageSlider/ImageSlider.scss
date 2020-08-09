@@ -67,7 +67,7 @@
 				border: 1px solid #fff;
 				transition: all 1s ease;
 				&_active {
-					background: #fff;
+					background: #fff!important;
 				}
 				&_hovered {
 					background: rgba(170, 170, 170, 0.7);

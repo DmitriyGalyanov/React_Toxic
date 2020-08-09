@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {IconsTextList} from 'Components/IconsTextList/IconsTextList.jsx'
-import {RoomFeedbackWheel} from 'Components/RoomFeedbackWheel/RoomFeedbackWheel.jsx'
+import {FeedbackWheel} from 'Components/FeedbackWheel/FeedbackWheel.jsx'
 import {RoomBooking} from 'Components/RoomBooking/RoomBooking.jsx'
 import {ReviewsList} from 'Components/ReviewsList/ReviewsList.jsx'
 import {BulletList} from 'Components/BulletList/BulletList.jsx';
@@ -63,7 +63,7 @@ export function RoomDetailsPage(props) {
 					header='Сведения о номере'
 					attributes={chosenRoom.comfortAttributes}
 					/>
-				<RoomFeedbackWheel
+				<FeedbackWheel
 					header='Впечатления от номера'
 					room={chosenRoom}/>
 				<RoomBooking

@@ -43,7 +43,7 @@
 				height: 2px; width: 22px;
 				background: scale-color($primaryColor, $lightness: 30%);
 				margin: 6px 0;
-				transition: all 0.6s ease;
+				transition: all 1s ease;
 				transform-origin: left;
 			}
 			&.active {
@@ -60,7 +60,7 @@
 		}
 			.header__nav {
 				display: flex; align-items: center;
-				transition: all 0.6s ease;
+				transition: all 1s ease;
 				transform-origin: top;
 				transform: scaleY(0);
 				&.active {
@@ -109,7 +109,7 @@
 				}
 			}
 			.header__nav {
-				top: 116px; // 44 за каждую кнопку (за первую 42)
+				top: 109px; // 44 за каждую кнопку (за первую 42)
 			}
 		.header__nav-open-button {
 			left: 116px;

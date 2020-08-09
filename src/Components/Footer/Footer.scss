@@ -45,6 +45,7 @@ footer {
 		display: flex; justify-content: space-between; align-items: center;
 	}
 	.footer__copyright {
+		text-align: center;
 		margin: 0;
 		font-size: 14px; line-height: 17px;
 		color: transparentize($darkShadeColor, 0.25);
@@ -106,6 +107,7 @@ footer {
 	flex-direction: column;
 	align-items: center;
 	.footer__copyright {
+		text-align: center;
 		margin: 20px 0 25px 0;
 	}
 }

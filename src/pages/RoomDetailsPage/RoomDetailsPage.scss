@@ -19,7 +19,7 @@
 		grid-area: pic3;
 	}
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
 	.room-details__banner {
 		width: auto;
 		margin-left: auto; margin-right: auto;
@@ -93,7 +93,7 @@
 
 @media (max-width: 1200px) {
 	.room-details__main {
-		width: fit-content;
+		width: fit-content!important;
 		grid-template-columns: 250px 300px 370px;
 		column-gap: 25px;
 		grid-template-rows: 275px minmax(110px, auto) minmax(110px, auto) minmax(160px, auto); // minmax() на первую строку?

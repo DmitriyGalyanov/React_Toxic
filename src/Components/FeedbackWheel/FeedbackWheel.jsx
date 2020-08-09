@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './RoomFeedbackWheel.scss';
+import './FeedbackWheel.scss';
 
 
-export function RoomFeedbackWheel(props) {
+export function FeedbackWheel(props) {
 	const {votes} = props.room.feedback;
 	const {header} = props;
 	let votesSum = 0;
@@ -22,10 +22,10 @@ export function RoomFeedbackWheel(props) {
 		dividerPassably = passably ? `${dividerWidth} ${passably - dividerWidth}` : '',
 		dividerBad = bad ? `${dividerWidth} ${bad - dividerWidth}` : '';
 	return (
-		<div className="room-feedback-wheel">
-			<h2 className="room-feedback-wheel__header">{header}</h2>
-			<div className="room-feedback-wheel__content">
-				<div className="room-feedback-wheel__wheel">
+		<div className="feedback-wheel">
+			<h2 className="feedback-wheel__header">{header}</h2>
+			<div className="feedback-wheel__content">
+				<div className="feedback-wheel__wheel">
 					<svg className="wheel" viewBox="0 0 42 42">
 						<circle className="wheel-hole"/>
 						<circle className="wheel-ring"/>
@@ -74,20 +74,20 @@ export function RoomFeedbackWheel(props) {
 					<span>{votesSum}</span>
 					<span>голосов</span>
 				</div>
-				<ul className="room-feedback-wheel__legend">
-					<li className="room-feedback-wheel__legend-item room-feedback-wheel__legend-item_great">
+				<ul className="feedback-wheel__legend">
+					<li className="feedback-wheel__legend-item feedback-wheel__legend-item_great">
 						Великолепно
 						<span>{` (${great.toFixed(2)}%)`}</span>
 					</li>
-					<li className="room-feedback-wheel__legend-item room-feedback-wheel__legend-item_good">
+					<li className="feedback-wheel__legend-item feedback-wheel__legend-item_good">
 						Хорошо
 						<span>{` (${good.toFixed(2)}%)`}</span>
 					</li>
-					<li className="room-feedback-wheel__legend-item room-feedback-wheel__legend-item_passably">
+					<li className="feedback-wheel__legend-item feedback-wheel__legend-item_passably">
 						Удовлетворительно
 						<span>{` (${passably.toFixed(2)}%)`}</span>
 					</li>
-					<li className="room-feedback-wheel__legend-item room-feedback-wheel__legend-item_bad">
+					<li className="feedback-wheel__legend-item feedback-wheel__legend-item_bad">
 						Разочарован
 						<span>{` (${bad.toFixed(2)}%)`}</span>
 					</li>

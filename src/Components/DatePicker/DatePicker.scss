@@ -72,6 +72,14 @@
 		opacity: 1;
 	}
 }
+@media (max-width: 390px) {
+	.calendar-wrap {
+		transform: scaleY(0) scaleX(0.8);
+	}
+	.calendar-wrap_visible {
+		transform: scale(0.8);
+	}
+}
 .calendar {
 	position: absolute;
 }

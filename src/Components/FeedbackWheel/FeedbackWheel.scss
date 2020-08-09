@@ -1,16 +1,17 @@
 @import 'src/colors.scss';
 
-.room-feedback-wheel {
-	.room-feedback-wheel__header {
+.feedback-wheel {
+	.feedback-wheel__header {
 		font-family: 'Quicksand', sans-serif;
 		font-size: 19px; line-height: 24px;
 		color: $darkShadeColor; font-weight: bold;
 		margin: 0 0 20px 0;
 	}
-	.room-feedback-wheel__content {
+	.feedback-wheel__content {
 		display: flex;
-		.room-feedback-wheel__wheel {
+		.feedback-wheel__wheel {
 			display: flex; flex-direction: column;
+			flex-shrink: 0;
 			justify-content: center;
 			width: 120px; height: 120px;
 			text-align: center; line-height: 30px;
@@ -36,11 +37,11 @@
 				right: -17px;
 			}
 		}
-		.room-feedback-wheel__legend {
+		.feedback-wheel__legend {
 			margin: 0 0 0 45px; padding: 0;
 			align-self: flex-end;
 			display: flex; flex-direction: column;
-			.room-feedback-wheel__legend-item {
+			.feedback-wheel__legend-item {
 				font-size: 14px; color: transparentize($darkShadeColor, 0.25);
 				line-height: 24px;
 				position: relative;
@@ -53,25 +54,34 @@
 					background-color: #000;
 					left: -15px; top: calc(50% - 5px);
 				}
-				&.room-feedback-wheel__legend-item_great:before {
+				&.feedback-wheel__legend-item_great:before {
 					background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
 				}
-				&.room-feedback-wheel__legend-item_good:before {
+				&.feedback-wheel__legend-item_good:before {
 					background: linear-gradient(180deg, $secondaryColor 0%, #66D2EA 100%);
 				}
-				&.room-feedback-wheel__legend-item_passably:before {
+				&.feedback-wheel__legend-item_passably:before {
 					background: linear-gradient(180deg, $primaryColor 0%, #8BA4F9 100%);
 				}
-				&.room-feedback-wheel__legend-item_bad:before {
+				&.feedback-wheel__legend-item_bad:before {
 					background: linear-gradient(180deg, #919191 0%, #3D4975 100%);
 				}
 				span {
-					visibility: hidden;
+					transition: 1s;
+					position: absolute;
+					bottom: 8px; left: 0px;
+					opacity: 0;
+					line-height: 14px; font-size: 14px;
+					padding: 4px; padding-bottom: 5px;
+					border: 1px solid transparentize($darkShadeColor, 0.75);
+					border-radius: 7px;
+					background: #fff;
 				}
 				&:hover {
 					color: $darkShadeColor;
 					span {
-						visibility: visible;
+						opacity: 1;
+						bottom: 22px; left: 8px;
 					}
 				}
 			}
