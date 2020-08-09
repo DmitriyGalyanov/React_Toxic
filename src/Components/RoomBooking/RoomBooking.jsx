@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {DatePickers} from 'Components/DatePicker/DatePicker.jsx'
 import {Dropdown} from 'Components/Dropdown/Dropdown.jsx'

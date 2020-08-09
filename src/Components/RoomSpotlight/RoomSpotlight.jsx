@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
+
 import {RateButton} from 'Components/RateButton/RateButton.jsx';
 import {ImageSlider} from 'Components/ImageSlider/ImageSlider.jsx';
 
@@ -34,15 +36,15 @@ function RoomSpotlight(props) {
 					/>
 
 				{roomData.feedback.reviews.length !== 0 && (
-					<a href='#' className='room-spotlight__feedback-count'>
+					<Link to={`roomDetails/${roomData.id}#reviews`} className='room-spotlight__feedback-count'>
 						Отзывы
 						<span> ({roomData.feedback.reviews.length})</span>
-					</a>
+					</Link>
 				)}
 				{roomData.feedback.reviews.length === 0 && (
-						<a href='#' className='room-spotlight__feedback-count'>
+						<Link to={`roomDetails/${roomData.id}#reviews`} className='room-spotlight__feedback-count'>
 							Отзывов пока нет
-						</a>
+						</Link>
 				)}
 			</div>
 		</div>

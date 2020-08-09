@@ -11,10 +11,27 @@ import bannerPic2 from 'images/roomDetailsBanner/bannerPic2.jpg'
 import bannerPic3 from 'images/roomDetailsBanner/bannerPic3.jpg';
 
 import './RoomDetailsPage.scss';
+import { useEffect } from 'react';
 
 
 
 export function RoomDetailsPage(props) {
+
+	useEffect(() => {
+		const displayedElement = props.location.hash ?
+			document.querySelector(props.location.hash) :
+			null;
+		if (displayedElement) {
+			setTimeout(() => {
+				const topOffset = displayedElement.getBoundingClientRect().top + window.pageYOffset;
+				window.scrollTo({
+					top: displayedElement ? (topOffset - 94) : 0,
+					behavior: 'smooth'
+				})
+			}, 80);
+		}
+	}, [props.location.hash])
+
 	const roomId = props.match.params.roomId;
 	let chosenRoom = {}
 	props.rooms.forEach(room => {
@@ -47,6 +64,7 @@ export function RoomDetailsPage(props) {
 					attributes={chosenRoom.comfortAttributes}
 					/>
 				<RoomFeedbackWheel
+					header='Впечатления от номера'
 					room={chosenRoom}/>
 				<RoomBooking
 					room={chosenRoom}
@@ -58,7 +76,7 @@ export function RoomDetailsPage(props) {
 					datepickersData={props.datepickersData}
 					datepickerApply={props.datepickerApply}
 					/>
-				<ReviewsList room={chosenRoom} users={props.users}/>
+				<ReviewsList room={chosenRoom} users={props.users} id='reviews'/>
 				<BulletList header='Правила'
 					items={bulletListItems}
 					/>

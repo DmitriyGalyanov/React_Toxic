@@ -16,7 +16,7 @@ export function LikeButton(props) {
 		<div className={likeButtonClasses} onClick={() => setIsLiked(!isLiked)}>
 			{props.count}
 			{/* <span/> */}
-			<img src={likeButtonActive}/>
+			<img src={likeButtonActive} alt='like-button-heart'/>
 		</div>
 	)
 }

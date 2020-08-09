@@ -5,10 +5,10 @@ import './RoomFeedbackWheel.scss';
 
 export function RoomFeedbackWheel(props) {
 	const {votes} = props.room.feedback;
+	const {header} = props;
 	let votesSum = 0;
-	for (const [key, value] of Object.entries(votes)) {
-		console.log(`${key}: ${value}`);
-		votesSum += value
+	for (const voteData of Object.entries(votes)) {
+		votesSum += voteData[1]
 	}
 	const coefficient = votesSum / 100;
 	let indexedVotes = {};
@@ -23,7 +23,7 @@ export function RoomFeedbackWheel(props) {
 		dividerBad = bad ? `${dividerWidth} ${bad - dividerWidth}` : '';
 	return (
 		<div className="room-feedback-wheel">
-			<h2 className="room-feedback-wheel__header"></h2>
+			<h2 className="room-feedback-wheel__header">{header}</h2>
 			<div className="room-feedback-wheel__content">
 				<div className="room-feedback-wheel__wheel">
 					<svg className="wheel" viewBox="0 0 42 42">

@@ -16,7 +16,8 @@ function Review(props) {
 	return(
 		<div className='reviews-list__item'>
 			<div className='review-aside'>
-				<img src={reviewSender.imgSrc} className='review__sender-pic'/>
+				<img src={reviewSender.imgSrc} className='review__sender-pic'
+					alt='user pic'/>
 				<LikeButton count={reviewData.likes}/>
 			</div>
 			<div className='review-text-wrap'>
@@ -29,10 +30,10 @@ function Review(props) {
 }
 
 export function ReviewsList(props) {
-	const {room, users} = props;
+	const {room, users, id} = props;
 	const {reviews} = room.feedback;
 	return (
-		<div className='reviews-list-wrap'>
+		<div className='reviews-list-wrap' id={id}>
 			<h3 className='reviews-list__header'>
 				{reviews.length !== 0 && (
 					<>

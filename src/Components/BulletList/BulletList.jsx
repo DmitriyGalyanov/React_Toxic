@@ -5,7 +5,6 @@ import './BulletList.scss';
 
 export function BulletList(props) {
 	const {header, items} = props;
-	console.log(header, items)
 	return (
 		<div className='bullet-list-wrap'>
 			<h4 className='bullet-list__header'>{header}</h4>
