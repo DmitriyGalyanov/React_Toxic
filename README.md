@@ -2,9 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## React_Toxic
 
-### Current Version: 0.14.2
+### Current Version: 0.14.3
 
 # [Live Preview](https://react-toxic.vercel.app/ "Click to see preview!")
+## Live Preview deployed with [Vercel](https://vercel.com/)
 
 <!-- ## Available Scripts
 

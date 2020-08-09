@@ -1,16 +1,31 @@
 .socials {
 	a {
-		font-size: 24px;
-		svg * {
-			fill: url(#socialsGradient);
+		position: relative;
+		&:hover {
+			.socials-svg_hovered {
+				opacity: 1;
+				z-index: 11;
+			}
 		}
 		&:not(:first-child) {
 			margin-left: 20px;
 		}
 	}
-	a:hover {
-		svg * {
-			fill: url(#socialsHoverGradient);
+	.socials-svg {
+		transition: 1s;
+		font-size: 58px;
+		&_default {
+			z-index: 10;
+			svg * {
+				fill: url(#socialsGradient);
+			}
+		}
+		&_hovered {
+			opacity: 0;
+			position: absolute; right: 0;
+			svg * {
+				fill: url(#socialsHoverGradient);
+			}
 		}
 	}
 }

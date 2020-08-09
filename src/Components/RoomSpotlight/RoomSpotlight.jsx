@@ -18,10 +18,12 @@ function RoomSpotlight(props) {
 			<ImageSlider images={roomData.images}/>
 			<div className='room-spotlight__desc'>
 				<h4 className='room-spotlight__desc-header'>
-					№ {roomData.id}
-					{roomData.isLuxe && (
-						<span> люкс</span>
-					)}
+					<Link to={`roomDetails/${roomData.id}`}>
+						№ {roomData.id}
+						{roomData.isLuxe && (
+							<span> люкс</span>
+						)}
+					</Link>
 				</h4>
 				<p className='room-spotlight__desc-price'>
 					{roomData.price} ₽

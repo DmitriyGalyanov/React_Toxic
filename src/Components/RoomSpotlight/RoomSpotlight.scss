@@ -26,16 +26,19 @@
 		justify-content: space-between;
 		align-items: center;
 		.room-spotlight__desc-header {
-			font-family: 'Quicksand', sans-serif;
-			font-weight: bold;
-			font-size: 14px;
-			color: $darkShadeColor;
-			span {
-				font-family: 'Montserrat', sans-serif;
+			a {
+				text-decoration: none;
+				font-family: 'Quicksand', sans-serif;
 				font-weight: bold;
-				font-size: 12px;
-				text-transform: uppercase;
-				color: $primaryColor;
+				font-size: 14px;
+				color: $darkShadeColor;
+				span {
+					font-family: 'Montserrat', sans-serif;
+					font-weight: bold;
+					font-size: 12px;
+					text-transform: uppercase;
+					color: $primaryColor;
+				}
 			}
 		}
 		.room-spotlight__desc-price {

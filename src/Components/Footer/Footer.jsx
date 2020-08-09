@@ -15,7 +15,7 @@ export function Footer() {
 				<div className='footer footer_mini container'>
 					<Logo/>
 					<div className='footer__copyright'>
-						Copyright &copy; 2018 Toxin отель. Все права защищены.
+						Copyright &copy; 2020 Toxin отель. Все права защищены.
 					</div>
 					<Socials/>
 				</div>
@@ -65,7 +65,7 @@ export function Footer() {
 				<div style={{width: '100vw', height: '1px', backgroundColor: '#DEDEE3', position: 'absolute', left: '0'}}/>
 				<div className='footer-bottom'>
 					<div className='footer__copyright'>
-						Copyright &copy; 2018 Toxin отель. Все права защищены.
+						Copyright &copy; 2020 Toxin отель. Все права защищены.
 					</div>
 					<Socials/>
 				</div>

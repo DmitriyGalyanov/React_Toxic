@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTwitterSquare,
 	faFacebookSquare,
@@ -12,13 +13,28 @@ export function Socials() {
 	return (
 			<div className='socials'>
 				<a href='https://twitter.com/'>
-					<FontAwesomeIcon icon={faTwitterSquare}/>
+					<span className='socials-svg socials-svg_default'>
+						<FontAwesomeIcon icon={faTwitterSquare}/>
+					</span>
+					<span className='socials-svg socials-svg_hovered'>
+						<FontAwesomeIcon icon={faTwitterSquare}/>
+					</span>
 				</a>
 				<a href='https://facebook.com/'>
-					<FontAwesomeIcon icon={faFacebookSquare}/>
+					<span className='socials-svg socials-svg_default'>
+						<FontAwesomeIcon icon={faFacebookSquare}/>
+					</span>
+					<span className='socials-svg socials-svg_hovered'>
+						<FontAwesomeIcon icon={faFacebookSquare}/>
+					</span>
 				</a>
 				<a href='https://instagram.com/'>
-					<FontAwesomeIcon icon={faInstagramSquare}/>
+					<span className='socials-svg socials-svg_default'>
+						<FontAwesomeIcon icon={faInstagramSquare}/>
+					</span>
+					<span className='socials-svg socials-svg_hovered'>
+						<FontAwesomeIcon icon={faInstagramSquare}/>
+					</span>
 				</a>
 
 				<svg width="0" height="0">
