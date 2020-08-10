@@ -17,9 +17,10 @@ export function SearchRoomPage(props) {
 
 	const {
 		rateButtonsData, rateButtonApply,
-		rooms,
+		roomsData,
 		costRangeSlidersData,
 		checkboxesData} = props;
+	const rooms = roomsData.entries;
 	return (
 		<div className='search-room-wrap container'>
 			<aside className='search-room__aside'>

@@ -2,7 +2,7 @@
 
 const imgSrcStart = 'images/roomsPictures';
 
-const roomsData = {entries: [ // Object.map
+const roomsData = {entries: [
 	{
 		id: 888,
 		price: 9990,

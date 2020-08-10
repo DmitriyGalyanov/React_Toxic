@@ -33,7 +33,8 @@ export function RoomDetailsPage(props) {
 
 	const roomId = props.match.params.roomId;
 	let chosenRoom = {}
-	props.rooms.forEach(room => {
+	const rooms = props.roomsData.entries;
+	rooms.forEach(room => {
 		if (+roomId === +room.id) {
 			chosenRoom = room;
 		}
@@ -75,7 +76,11 @@ export function RoomDetailsPage(props) {
 					datepickersData={props.datepickersData}
 					datepickerApply={props.datepickerApply}
 					/>
-				<ReviewsList room={chosenRoom} users={props.users} id='reviews'/>
+				<ReviewsList room={chosenRoom} users={props.users} id='reviews'
+					likeButtonsData={props.likeButtonsData}
+					likeButtonSetLiked={props.likeButtonSetLiked}
+					likeButtonSetUnliked={props.likeButtonSetUnliked}
+				/>
 				<BulletList header='Правила'
 					items={bulletListItems}
 					/>

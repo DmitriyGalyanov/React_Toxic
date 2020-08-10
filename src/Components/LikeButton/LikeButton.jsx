@@ -7,15 +7,28 @@ import './LikeButton.scss';
 
 
 export function LikeButton(props) {
-	const [isLiked, setIsLiked] = useState(true);
+	const likeButtonId = props.id;
+	const [isLiked, setIsLiked] = useState(
+		props.likeButtonsData[likeButtonId] ?
+		props.likeButtonsData[likeButtonId].isLiked :
+		false
+	);
 	let likeButtonClasses = classNames(
 		'like-button',
 		{'like-button_active': isLiked}
-	)
+	);
+	const handleClick = () => {
+		if (isLiked) {
+			props.likeButtonSetUnliked(likeButtonId)
+		} else {
+			props.likeButtonSetLiked(likeButtonId)
+		}
+		setIsLiked(!isLiked)
+	};
+
 	return (
-		<div className={likeButtonClasses} onClick={() => setIsLiked(!isLiked)}>
+		<div className={likeButtonClasses} onClick={() => handleClick()}>
 			{props.count}
-			{/* <span/> */}
 			<img src={likeButtonActive} alt='like-button-heart'/>
 		</div>
 	)

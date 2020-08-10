@@ -1,7 +1,6 @@
 @import 'src/colors.scss';
 
 .room-details__banner {
-	// display: none!important; /////////
 	width: 1440px;
 	margin: 0 auto;
 	display: grid;
@@ -96,7 +95,7 @@
 		width: fit-content!important;
 		grid-template-columns: 250px 300px 370px;
 		column-gap: 25px;
-		grid-template-rows: 275px minmax(110px, auto) minmax(110px, auto) minmax(160px, auto); // minmax() на первую строку?
+		grid-template-rows: 275px minmax(110px, auto) minmax(110px, auto) minmax(160px, auto);
 		grid-template-rows: auto;
 		grid-template-areas: "iconsList feedbackWheel roomBooking"
 													"reviews reviews roomBooking"
@@ -105,19 +104,16 @@
 	}
 }
 @media (max-width: 992px) {
-	// main {
-		// margin: 40px 0;
-		.room-details__main {
-			margin: 40px 0;
-			grid-template-columns: 280px 360px;
-			grid-template-rows: auto;
-			grid-template-areas: "iconsList feedbackWheel"
-													 "reviews reviews"
-													 "rules cancellationInfo"
-													 "roomBooking roomBooking"
-													 "roomBooking roomBooking";
-		}
-	// }
+	.room-details__main {
+		margin: 40px 0;
+		grid-template-columns: 280px 360px;
+		grid-template-rows: auto;
+		grid-template-areas: "iconsList feedbackWheel"
+													"reviews reviews"
+													"rules cancellationInfo"
+													"roomBooking roomBooking"
+													"roomBooking roomBooking";
+	}
 }
 @media (max-width: 992px) and (min-width: 769px) {
 	.room-feedback-wheel {
@@ -130,40 +126,34 @@
 	}
 }
 @media (max-width: 768px) {
-	// main {
-		// margin: 20px 0;
-		.room-details__main {
-			margin: 20px 0;
-			grid-template-columns: 265px 230px minmax(50px, auto);
-			column-gap: 10px;
-			grid-template-areas: "iconsList feedbackWheel feedbackWheel"
-													 "reviews reviews ."
-													 "rules cancellationInfo ."
-													 "roomBooking roomBooking ."
-													 "roomBooking roomBooking .";
-		}
-	// }
+	.room-details__main {
+		margin: 20px 0;
+		grid-template-columns: 265px 230px minmax(50px, auto);
+		column-gap: 10px;
+		grid-template-areas: "iconsList feedbackWheel feedbackWheel"
+													"reviews reviews ."
+													"rules cancellationInfo ."
+													"roomBooking roomBooking ."
+													"roomBooking roomBooking .";
+	}
 }
 @media (max-width: 576px) {
-	// main {
-		// margin: 5px 0;
-		.room-details__main {
-			margin: 5px 0;
-			grid-template-columns: minmax(300px, 566px);
-			grid-template-areas: "iconsList"
-													 "feedbackWheel"
-													 "reviews"
-													 "rules"
-													 "cancellationInfo"
-													 "roomBooking"
-													 "roomBooking";
-			.room-feedback-wheel .room-feedback-wheel__content {
-				flex-direction: column;
-				.room-feedback-wheel__legend {
-					margin-left: 18px;
-					align-self: initial;
-				}
+	.room-details__main {
+		margin: 5px 0;
+		grid-template-columns: minmax(300px, 566px);
+		grid-template-areas: "iconsList"
+													"feedbackWheel"
+													"reviews"
+													"rules"
+													"cancellationInfo"
+													"roomBooking"
+													"roomBooking";
+		.room-feedback-wheel .room-feedback-wheel__content {
+			flex-direction: column;
+			.room-feedback-wheel__legend {
+				margin-left: 18px;
+				align-self: initial;
 			}
 		}
-	// }
+	}
 }

@@ -6,7 +6,11 @@ import './ReviewsList.scss';
 
 
 function Review(props) {
-	const {reviewData, users} = props;
+	const {reviewData,
+		users,
+		likeButtonSetLiked,
+		likeButtonSetUnliked
+	} = props;
 	let reviewSender;
 	users.forEach(user => {
 		if (user.id === reviewData.senderId) {
@@ -18,7 +22,12 @@ function Review(props) {
 			<div className='review-aside'>
 				<img src={reviewSender.imgSrc} className='review__sender-pic'
 					alt='user pic'/>
-				<LikeButton count={reviewData.likes}/>
+				<LikeButton count={reviewData.likes}
+					id={reviewData.reviewId}
+					likeButtonsData={props.likeButtonsData.entries}
+					likeButtonSetLiked={likeButtonSetLiked}
+					likeButtonSetUnliked={likeButtonSetUnliked}
+				/>
 			</div>
 			<div className='review-text-wrap'>
 				<h4 className='review__sender-name'>{reviewSender.name}</h4>
@@ -51,7 +60,13 @@ export function ReviewsList(props) {
 			{reviews.length !== 0 && (
 				<div className='reviews-list__list'>
 					{reviews.map((review, index) => {
-						return <Review key={index} reviewData={review} users={users}/>
+						return (
+							<Review key={index} reviewData={review} users={users}
+								likeButtonsData={props.likeButtonsData}
+								likeButtonSetLiked={props.likeButtonSetLiked}
+								likeButtonSetUnliked={props.likeButtonSetUnliked}
+							/>
+						)
 					})}
 			</div>
 			)}

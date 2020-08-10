@@ -5,16 +5,16 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {dropdownValueIncrement,
-				dropdownValueDecrement,
-				dropdownClear,
-				dropdownApply} from 'actions/dropdownsActions.js';
+	dropdownValueDecrement,
+	dropdownClear,
+	dropdownApply} from 'actions/dropdownsActions.js';
 import {datepickerApply} from 'actions/datePickerActions.js';
 import {costRangeSliderApply} from 'actions/costRangeSliderActions.js';
 import {checkboxToggle} from 'actions/checkboxActions.js';
 import {rateButtonApply} from 'actions/rateButtonActions.js';
-
-import {roomsLoad} from 'actions/roomsActions.js';
-
+import {roomsLoad} from 'actions/roomsActions.js';//
+import {likeButtonSetLiked,
+	likeButtonSetUnliked} from 'actions/likeButtonActions.js';
 
 import {Header} from 'Components/Header/Header.jsx'
 import {Footer} from 'Components/Footer/Footer.jsx';
@@ -24,19 +24,14 @@ import {LandingPage} from 'pages/LandingPage/LandingPage.jsx'
 import {SearchRoomPage} from 'pages/SearchRoomPage/SearchRoomPage.jsx'
 import {RoomDetailsPage} from 'pages/RoomDetailsPage/RoomDetailsPage.jsx';
 
-import roomsData from 'src/data/roomsData.js'
 import usersData from 'src/data/usersData.js';
 
-
-// import roomsDataNEW from 'src/data/roomsDataNEW.js';
-// import roomsData_new from 'src/data/roomsData.json';
 
 function PageNotFound() {
 	return (<div>Page not found</div>)
 }
 
 class MainContainer extends Component {
-
 	componentDidMount() {
 		const {roomsLoadAction} = this.props;
 		roomsLoadAction();
@@ -55,7 +50,6 @@ class MainContainer extends Component {
 		const {dropdownClearAction} = this.props;
 		dropdownClearAction(dropdownId, dropdownOptions);
 	}
-
 	dropdownApply = (dropdownId, dropdownOptions) => {
 		const {dropdownApplyAction} = this.props;
 		dropdownApplyAction(dropdownId, dropdownOptions);
@@ -81,16 +75,25 @@ class MainContainer extends Component {
 		rateButtonApplyAction(rateButtonId, newRate);
 	}
 
+	likeButtonSetLiked = (likeButtonId) => {
+		const {likeButtonSetLikedAction} = this.props;
+		likeButtonSetLikedAction(likeButtonId);
+	}
+	likeButtonSetUnliked = (likeButtonId) => {
+		const {likeButtonSetUnlikedAction} = this.props;
+		likeButtonSetUnlikedAction(likeButtonId);
+	}
 
 	render() {
-		const rooms = roomsData.entries;
-			const users = usersData.entries;
+		const roomsData = this.props.roomsData;
+		const users = usersData.entries;
 		const {
 			dropdownsData,
 			datepickersData,
 			costRangeSlidersData,
 			checkboxesData,
-			rateButtonsData} = this.props;
+			rateButtonsData,
+			likeButtonsData} = this.props;
 		return (
 			<div className="App">
 				<BrowserRouter>
@@ -130,21 +133,28 @@ class MainContainer extends Component {
 									rateButtonsData={rateButtonsData}
 									rateButtonApply={this.rateButtonApply}
 
-									rooms={rooms}
+									roomsData={roomsData}
 									users={users}
 									/>}/>
 								<Route exact path='/roomDetails/:roomId([0-9]+)'
 									render={(props) => <RoomDetailsPage
 										{...props}
-										rooms={rooms}
+										roomsData={roomsData}
+
 										users={users}
+
 										dropdownsData={dropdownsData}
 										dropdownValueIncrement={this.dropdownValueIncrement}
 										dropdownValueDecrement={this.dropdownValueDecrement}
 										dropdownClear={this.dropdownClear}
 										dropdownApply={this.dropdownApply}
+
 										datepickersData={datepickersData}
 										datepickerApply={this.datepickerApply}
+
+										likeButtonsData={likeButtonsData}
+										likeButtonSetLiked={this.likeButtonSetLiked}
+										likeButtonSetUnliked={this.likeButtonSetUnliked}
 									/>}/>
 
 								
@@ -166,7 +176,7 @@ function mapStateToProps(state, ownProps) {
 	const checkboxesData = state.checkboxesData.entries;
 	const rateButtonsData = state.rateButtonsData.entries;
 	const roomsData = state.roomsData;//
-	// console.log(roomsData)
+	const likeButtonsData = state.likeButtonsData;
 
 	return ({
 		dropdownsData: dropdownsData,
@@ -174,7 +184,8 @@ function mapStateToProps(state, ownProps) {
 		costRangeSlidersData: costRangeSlidersData,
 		checkboxesData: checkboxesData,
 		rateButtonsData: rateButtonsData,
-		roomsData: roomsData//
+		roomsData: roomsData,//
+		likeButtonsData: likeButtonsData
 	})
 	// this return data (Object) goes to MainContainer props
 }
@@ -202,7 +213,11 @@ function mapDispatchToProps(dispatch) {
 		rateButtonApplyAction: (rateButtonId, newRate) =>
 			dispatch(rateButtonApply(rateButtonId, newRate)),
 
-		roomsLoadAction: () => dispatch(roomsLoad()),
+		roomsLoadAction: () => dispatch(roomsLoad()),//
+
+		likeButtonSetLikedAction: (likeButtonId) => dispatch(likeButtonSetLiked(likeButtonId)),
+		likeButtonSetUnlikedAction: (likeButtonId) => dispatch(likeButtonSetUnliked(likeButtonId)),
+		// happened that they r connected way too hard
 	}
 }
 

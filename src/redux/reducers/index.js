@@ -6,6 +6,7 @@ import {costRangeSliderReducer} from './costRangeSliderReducer.js'
 import {checkboxReducer} from './checkboxReducer.js'
 import {rateButtonReducer} from './rateButtonReducer.js'
 import {roomsReducer} from './roomsReducer.js'//
+import {likeButtonReducer} from './likeButtonReducer.js'
 
 
 export const rootReducer = combineReducers({
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
 	checkboxesData: checkboxReducer,
 	rateButtonsData: rateButtonReducer,
 	roomsData: roomsReducer,
+	likeButtonsData: likeButtonReducer
 })
