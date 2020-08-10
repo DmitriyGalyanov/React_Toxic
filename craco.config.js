@@ -9,7 +9,8 @@ module.exports = {
 			images: path.resolve(__dirname, 'src', 'images'),
 			Redux: path.resolve(__dirname, 'src', 'redux'),
 			actions: path.resolve(__dirname, 'src', 'redux', 'actions'),
-			middlewares: path.resolve(__dirname, 'src', 'redux', 'middlewares')
+			middlewares: path.resolve(__dirname, 'src', 'redux', 'middlewares'),
+			fonts: path.resolve(__dirname, 'src', 'fonts')
 		}
 	}
 }
