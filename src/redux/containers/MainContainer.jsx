@@ -13,6 +13,8 @@ import {costRangeSliderApply} from 'actions/costRangeSliderActions.js';
 import {checkboxToggle} from 'actions/checkboxActions.js';
 import {rateButtonApply} from 'actions/rateButtonActions.js';
 
+import {roomsLoad} from 'actions/roomsActions.js';
+
 
 import {Header} from 'Components/Header/Header.jsx'
 import {Footer} from 'Components/Footer/Footer.jsx';
@@ -25,11 +27,20 @@ import {RoomDetailsPage} from 'pages/RoomDetailsPage/RoomDetailsPage.jsx';
 import roomsData from 'src/data/roomsData.js'
 import usersData from 'src/data/usersData.js';
 
+
+// import roomsDataNEW from 'src/data/roomsDataNEW.js';
+// import roomsData_new from 'src/data/roomsData.json';
+
 function PageNotFound() {
 	return (<div>Page not found</div>)
 }
 
 class MainContainer extends Component {
+
+	componentDidMount() {
+		const {roomsLoadAction} = this.props;
+		roomsLoadAction();
+	}
 
 	dropdownValueIncrement = (dropdownOptionId, dropdownId) => {
 		const {dropdownValueIncrementAction} = this.props;
@@ -72,8 +83,8 @@ class MainContainer extends Component {
 
 
 	render() {
-		const rooms = roomsData.entries,
-			users = usersData.entries;
+		const rooms = roomsData.entries;
+			const users = usersData.entries;
 		const {
 			dropdownsData,
 			datepickersData,
@@ -154,13 +165,16 @@ function mapStateToProps(state, ownProps) {
 	const costRangeSlidersData = state.costRangeSlidersData.entries;
 	const checkboxesData = state.checkboxesData.entries;
 	const rateButtonsData = state.rateButtonsData.entries;
+	const roomsData = state.roomsData;//
+	// console.log(roomsData)
 
 	return ({
 		dropdownsData: dropdownsData,
 		datepickersData: datepickersData,
 		costRangeSlidersData: costRangeSlidersData,
 		checkboxesData: checkboxesData,
-		rateButtonsData: rateButtonsData
+		rateButtonsData: rateButtonsData,
+		roomsData: roomsData//
 	})
 	// this return data (Object) goes to MainContainer props
 }
@@ -188,7 +202,7 @@ function mapDispatchToProps(dispatch) {
 		rateButtonApplyAction: (rateButtonId, newRate) =>
 			dispatch(rateButtonApply(rateButtonId, newRate)),
 
-		
+		roomsLoadAction: () => dispatch(roomsLoad()),
 	}
 }
 

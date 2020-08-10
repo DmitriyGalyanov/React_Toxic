@@ -1,7 +1,6 @@
-//
+// const imgSrcStart = `${process.env.PUBLIC_URL}/images/roomsPictures`;
 
-
-const imgSrcStart = `${process.env.PUBLIC_URL}/images/roomsPictures`;
+const imgSrcStart = 'images/roomsPictures';
 
 const roomsData = {entries: [ // Object.map
 	{
